@@ -33,7 +33,7 @@
                     <label for="category">Category</label>
                     <select class="form-control" name="category_id" id="" onChange="load_sc()">
                         @foreach($cats as $cat)
-                        <option class="text-uppercase" value="{{$cat->id}}" data-name="{{$cat->category_name}}" >{{$cat->category_name}}</option>
+                        <option class="text-uppercase" value="{{$cat->id}}" data-name="{{$cat->name}}" >{{$cat->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -68,7 +68,8 @@
                     <tr>
                         <th>{{$product->id}}</th>
                         <td>{{$product->name}}</td>
-                        <td>{{$product->category->category_name}}</td>
+                        <td>{{$product->category->name}}</td>
+                        <td>{{$product->sub_category->name}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -128,7 +129,7 @@
                         <label for="">Parent Category</label>
                         <select name="parent_category" class="form-control">
                             @foreach($cats as $cat)
-                            <option class="text-uppercase" value="{{$cat->id}}">{{$cat->category_name}}</option>
+                            <option class="text-uppercase" value="{{$cat->id}}">{{$cat->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -154,7 +155,7 @@
         let html = ``;
 
         sub_categories.forEach((sc)=>{
-            if(parseInt(sc.parent_category) == parseInt(category_id))
+            if(parseInt(sc.category_id) == parseInt(category_id))
             {
                 html += `<option class="text-uppercase" value="${sc.id}">${sc.name}</option>`;
             }
