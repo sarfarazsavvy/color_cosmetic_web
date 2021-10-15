@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-    @include('head')
+    @include('layouts.head')
     
     <title>Hello, world!</title>
 
@@ -12,7 +12,7 @@
 
     @yield('body')
 
-    @include('scripts')
+    @include('layouts.scripts')
     
     @yield('custom-scripts')
   </body>
