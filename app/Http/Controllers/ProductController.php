@@ -16,8 +16,6 @@ class ProductController extends Controller
         $product->quantity = $req->quantity;
         $product->category_id = $req->category_id;
         $product->sub_category_id = $req->sub_category_id;
-    
-
         $product->save();
     
         return redirect()->back()->with('success','Product Added Succesfully!');
