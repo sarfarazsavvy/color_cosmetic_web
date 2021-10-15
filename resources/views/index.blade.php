@@ -1,8 +1,13 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
+@section('main')
 
-@section('body')
-
-<h1>Hello From Index</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Helllooo from other side</h1>
+        </div>
+    </div>
+</div><!--/.row-->
 
 @endsection
