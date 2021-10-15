@@ -9,10 +9,8 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\SubCategory;
 use App\Product;
-use App\Http\Controllers\Controller as Controller;
 
-
-class FetchController extends Controller
+class FetchController extends BaseController
 {
     
     public function categories(){
