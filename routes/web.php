@@ -24,3 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', function() {
     return view("index");
 });
+
+Route::get('/products', 'ProductController@create');
+Route::post('/add-products', 'ProductController@store');
+Route::post('/add-category', 'CategoryController@addCategory');
+Route::post('/add-sub-category', 'CategoryController@addSubCategory');
