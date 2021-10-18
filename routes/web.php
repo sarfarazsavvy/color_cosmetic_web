@@ -25,9 +25,32 @@ Route::get('/index', function() {
     return view("index");
 });
 
-Route::get('/products', 'ProductController@create');
-Route::post('/add-products', 'ProductController@store');
+
+// products 
+Route::get('/all-products', 'ProductController@allProducts');
+Route::get('/add-products-form', 'ProductController@addProductForm');
+Route::post('/add-products', 'ProductController@addProduct');
+// categories 
 Route::post('/add-category', 'CategoryController@addCategory');
 Route::post('/add-sub-category', 'CategoryController@addSubCategory');
-Route::get('/stores', 'StoreController@store');
+// stores
+Route::get('/all-stores', 'StoreController@stores');
+Route::get('/add-store-form', 'StoreController@createStoreForm');
 Route::post('/add-store', 'StoreController@createStore');
+// beauty girls
+Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors');
+Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm');
+Route::post('/create-beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisor');
+// categories
+Route::get('/all-categories', 'CategoryController@allCategories');
+Route::get('/add-category-form', 'CategoryController@addCategoryForm');
+Route::get('/add-category', 'CategoryController@addCategory');
+// sub sub-categories
+Route::get('/all-sub-categories', 'CategoryController@allSubCategories');
+Route::get('/add-sub-category-form', 'CategoryController@addSubCategoryForm');
+Route::get('/add-sub-category', 'CategoryController@addSubCategory');
+
+
+
+
+

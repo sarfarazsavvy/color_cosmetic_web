@@ -8,7 +8,14 @@ use App\SubCategory;
 
 class ProductController extends Controller
 {
-    public function store(Request $req) {
+    public function addProductForm() {
+        $cats = Category::all();
+        $subCats = SubCategory::all(); 
+
+        return view('add-products', compact('cats', 'subCats'));
+    }
+
+    public function addProduct(Request $req) {
 
         $product = new Product;
         
@@ -22,11 +29,10 @@ class ProductController extends Controller
         
     }
 
-    public function create() {
-        $cats = Category::all();
-        $subCats = SubCategory::all();
-        $products = Product::all();
+    public function allProducts() {
 
-        return view("products",compact('cats', 'subCats', 'products'));
+        $products = Product::with('category', 'sub_category')->get();
+
+        return view("all-products", compact('products'));
     }
 }
