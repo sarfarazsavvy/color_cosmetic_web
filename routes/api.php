@@ -27,3 +27,4 @@ Route::middleware('auth:sanctum')->group(function(){
     });
 });
 
+Route::get('product-list', 'FetchController@products');

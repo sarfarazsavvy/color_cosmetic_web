@@ -38,6 +38,7 @@ class FetchController extends BaseController
             $category = $req->input('category_id');
             $products = Product::where('category_id',$category)->get();
         }
+        
         else if($req->input('sub_category_id'))
         {
             $category = $req->input('category_id');
