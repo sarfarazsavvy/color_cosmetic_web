@@ -1050,6 +1050,10 @@
                 "laravel",
                 "sanctum"
             ],
+            "support": {
+                "issues": "https://github.com/laravel/sanctum/issues",
+                "source": "https://github.com/laravel/sanctum"
+            },
             "time": "2021-10-13T13:38:15+00:00"
         },
         {
@@ -5032,20 +5036,19 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.15.0",
+            "version": "2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "3ee6e94815462bcf09bca0efc1c9069685df8da3"
+                "reference": "6d89c4c99537f487ad29f646d57ebf107ef714ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/3ee6e94815462bcf09bca0efc1c9069685df8da3",
-                "reference": "3ee6e94815462bcf09bca0efc1c9069685df8da3",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/6d89c4c99537f487ad29f646d57ebf107ef714ed",
+                "reference": "6d89c4c99537f487ad29f646d57ebf107ef714ed",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "facade/flare-client-php": "^1.9.1",
@@ -5105,7 +5108,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-10-11T15:24:06+00:00"
+            "time": "2021-10-08T12:34:52+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -6910,6 +6913,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-11-30T07:30:19+00:00"
         },
         {
@@ -7133,5 +7137,5 @@
         "php": "^7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

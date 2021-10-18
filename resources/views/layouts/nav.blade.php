@@ -6,12 +6,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
-            <ul class="nav navbar-top-links navbar-right">
-
-            </ul>
+            <a class="navbar-brand" href="#">Revlon Color Cosmetic</a>
+            <ul class="navbar-nav me-auto custom-nav-links">
+            <li class="nav-item">
+                <a class="nav-link" href="">dfdfdf</a>
             </li>
-            </ul>
+        </ul>
         </div>
+
     </div><!-- /.container-fluid -->
 </nav>
