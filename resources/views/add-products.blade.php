@@ -27,8 +27,7 @@
                     <label for="category">Category</label>
                     <select class="form-control" name="category_id" id="" onChange="load_sc()">
                         @foreach($cats as $cat)
-                        <option class="text-uppercase" value="{{$cat->id}}" data-name="{{$cat->name}}">{{$cat->name}}
-                        </option>
+                        <option class="text-uppercase" value="{{$cat->id}}" data-name="{{$cat->name}}">{{$cat->name}}</option>
                         @endforeach
                     </select>
                 </div>
