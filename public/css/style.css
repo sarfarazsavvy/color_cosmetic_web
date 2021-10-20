@@ -34,6 +34,12 @@ body {
     border-color: var(--red);
 }
 
+/* =========== THEME ============= */
+
+.theme-container {
+    
+}
+
 /*=============== SIDEBAR ===============*/
 
 .sidebar {
@@ -43,6 +49,14 @@ body {
 
 .sidebar .active {
     background-color: var(--red) !important;
+}
+
+.sidebar-logout-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 12px 50px;
+    width: 100%;
 }
 
 .sidebar .active a {

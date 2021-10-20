@@ -71,11 +71,11 @@
                 </li>
             </ul>
         </li>
-        <li class="parent "><a data-toggle="collapse" href="#sub-item-5">
-                <em class="fa fa-navicon">&nbsp;</em>Sub Categories <span data-toggle="collapse" href="#sub-item-5"
+        <li class="parent "><a data-toggle="collapse" href="#sub-item-6">
+                <em class="fa fa-navicon">&nbsp;</em>Sub Categories <span data-toggle="collapse" href="#sub-item-6"
                     class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-5">
+            <ul class="children collapse" id="sub-item-6">
                 <li><a class="{{ request()->segment(1)=='all-sub-categories' ? 'active' : '' }}" href="/all-sub-categories">
                         <span class="fa fa-arrow-right">&nbsp;</span>All Sub Categories</a>
                 </li>
@@ -85,7 +85,7 @@
             </ul>
         </li>
         <form action="{{route('logout')}}" method="post"> @csrf
-            <li><button type="submit" href="" onClick=""><em class="fa fa-power-off">&nbsp;</em> Logout</button></li>
+            <li><button class="btn sidebar-logout-btn" type="submit" href="" onClick=""><em class="fa fa-power-off">&nbsp;</em> Logout</button></li>
         </form>
     </ul>
 </div>
