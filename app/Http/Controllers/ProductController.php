@@ -19,8 +19,9 @@ class ProductController extends Controller
 
         $product = new Product;
         
+        $product->sku_code = $req->sku;
         $product->name = $req->name;
-        $product->quantity = $req->quantity;
+        $product->price = $req->price;
         $product->category_id = $req->category_id;
         $product->sub_category_id = $req->sub_category_id;
         $product->save();

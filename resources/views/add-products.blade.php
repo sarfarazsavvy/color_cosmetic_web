@@ -12,12 +12,16 @@
                     <h2 class="font-weight-bold">Add your product details</h2>
                 </div>
                 <div class="form-group">
+                    <label for="quantity">SKU</label>
+                    <input class="form-control" required type="number" name="sku">
+                </div>
+                <div class="form-group">
                     <label for="product-name">Product Name</label>
                     <input class="form-control" required type="text" name="name">
                 </div>
                 <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input class="form-control" required type="number" name="quantity">
+                    <label for="quantity">Price</label>
+                    <input class="form-control" required type="number" name="price">
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>

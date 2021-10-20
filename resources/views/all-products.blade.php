@@ -13,8 +13,9 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">SKU</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Category</th>
                             <th scope="col">Sub Category</th>
                         </tr>
@@ -23,8 +24,9 @@
                         @foreach($products as $product)
                         <tr>
                             <th scope="row">{{$product->id}}</th>
+                            <td>{{$product->sku_code}}</td>
                             <td>{{$product->name}}</td>
-                            <td>{{$product->quantity}}</td>
+                            <td>{{$product->price}}</td>
                             <td>{{$product->category->name}}</td>
                             <td>{{$product->sub_category->name}}</td>
                         </tr>
