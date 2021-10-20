@@ -37,6 +37,10 @@ Route::post('/add-sub-category', 'CategoryController@addSubCategory');
 Route::get('/all-stores', 'StoreController@stores');
 Route::get('/add-store-form', 'StoreController@createStoreForm');
 Route::post('/add-store', 'StoreController@createStore');
+// cities
+// Route::get('/all-stores', 'StoreController@stores');
+// Route::get('/add-store-form', 'StoreController@createStoreForm');
+// Route::post('/add-store', 'StoreController@createStore');
 // beauty girls
 Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors');
 Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm');
