@@ -46,10 +46,23 @@
             </ul>
         </li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-3">
-                <em class="fa fa-navicon">&nbsp;</em> Categories <span data-toggle="collapse" href="#sub-item-3"
+                <em class="fa fa-navicon">&nbsp;</em> City <span data-toggle="collapse" href="#sub-item-3"
                     class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-3">
+                <li><a class="{{ request()->segment(1)=='all-cities' ? 'active' : '' }}" href="/all-cities">
+                        <span class="fa fa-arrow-right">&nbsp;</span>All Cities</a>
+                </li>
+                <li><a class="{{ request()->segment(1)=='add-city-form' ? 'active' : '' }}" href="/add-city-form">
+                        <span class="fa fa-arrow-right">&nbsp;</span>Add Cities</a>
+                </li>
+            </ul>
+        </li>
+        <li class="parent "><a data-toggle="collapse" href="#sub-item-4">
+                <em class="fa fa-navicon">&nbsp;</em> Categories <span data-toggle="collapse" href="#sub-item-4"
+                    class="icon pull-right"><em class="fa fa-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-4">
                 <li><a class="{{ request()->segment(1)=='all-categories' ? 'active' : '' }}" href="/all-categories">
                         <span class="fa fa-arrow-right">&nbsp;</span>All Categories</a>
                 </li>
@@ -58,11 +71,11 @@
                 </li>
             </ul>
         </li>
-        <li class="parent "><a data-toggle="collapse" href="#sub-item-4">
-                <em class="fa fa-navicon">&nbsp;</em>Sub Categories <span data-toggle="collapse" href="#sub-item-4"
+        <li class="parent "><a data-toggle="collapse" href="#sub-item-5">
+                <em class="fa fa-navicon">&nbsp;</em>Sub Categories <span data-toggle="collapse" href="#sub-item-5"
                     class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-4">
+            <ul class="children collapse" id="sub-item-5">
                 <li><a class="{{ request()->segment(1)=='all-sub-categories' ? 'active' : '' }}" href="/all-sub-categories">
                         <span class="fa fa-arrow-right">&nbsp;</span>All Sub Categories</a>
                 </li>
@@ -71,7 +84,9 @@
                 </li>
             </ul>
         </li>
-        <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+        <form action="{{route('logout')}}" method="post"> @csrf
+            <li><button type="submit" href="" onClick=""><em class="fa fa-power-off">&nbsp;</em> Logout</button></li>
+        </form>
     </ul>
 </div>
 <!--/.sidebar-->
