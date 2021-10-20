@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Category;
 use App\SubCategory;
+use App\StoreStock;
 use App\Product;
 
 class FetchController extends BaseController
@@ -32,19 +33,30 @@ class FetchController extends BaseController
 
     public function products(Request $req){
 
+        $store = auth()->user()->stores()->first();
+        if(!$store)
+        {
+            return $this->sendError("You are not associated with any store");
+        }
         if($req->input('category_id'))
         {
             $category = $req->input('category_id');
-            $products = Product::where('category_id',$category)->get();
+            $products = StoreStock::with('product')->
+                        whereHas('product',function($p) use($category){
+                            return $p->where('category_id',$category);
+                        })->where('store_id',$store->id)->get();
         }
 
         else if($req->input('sub_category_id'))
         {
-            $category = $req->input('category_id');
-            $products = Product::where('category_id',$category)->get();
+            $category = $req->input('sub_category_id');
+            $products = StoreStock::with('product')->
+                        whereHas('product',function($p) use($category){
+                            return $p->where('sub_category_id',$category);
+                        })->where('store_id',$store->id)->get();
         }
         else{
-            $products = Product::all();
+            $products = StoreStock::with('product')->where('store_id',$store->id)->get();
         }
         return $this->sendResponse(['products'=>$products],'Products fetched successfully');
     }

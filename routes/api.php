@@ -25,6 +25,14 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::get('sub_categories','FetchController@sub_categories');
         Route::get('products','FetchController@products');
     });
+    
+    Route::group(['prefix'=>'inventory'],function(){
+        Route::post('add','StockController@addStock');
+    });
+    Route::group(['prefix'=>'sale'],function(){
+        Route::post('create','SaleController@create');
+    });
+    
 });
 
 Route::get('product-list', 'FetchController@products');
