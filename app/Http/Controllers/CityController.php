@@ -28,6 +28,7 @@ class CityController extends Controller
         $city->state = $req->state;
 
         $city->save();
+        return redirect()->route('city.index')->with('success','city added');
 
     }
 
