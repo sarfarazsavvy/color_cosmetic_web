@@ -16,11 +16,11 @@
                     <th>State</th>
                 </thead>
                 <tbody>
-                    @foreach( $cities as $city )
+                    @foreach($allCities as $city )
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->name}}</td>
-                        <td>{{ $category->state}}</td>
+                        <td>{{ $city->id }}</td>
+                        <td>{{ $city->name}}</td>
+                        <td>{{ $city->state}}</td>
                     </tr>
                     @endforeach
  

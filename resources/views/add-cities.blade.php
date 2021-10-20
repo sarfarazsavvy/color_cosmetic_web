@@ -18,11 +18,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">State</label>
-                    <select name="category_id" class="form-control">
+                    <select name="state" class="form-control">
                         <option value="sindh">Sindh</option>
-                        <option value="sindh">Punjab</option>
-                        <option value="sindh">Balochistan</option>
-                        <option value="sindh">KPK</option>
+                        <option value="punjab">Punjab</option>
+                        <option value="balochistan">Balochistan</option>
+                        <option value="kpk">KPK</option>
                     </select>
                 </div>
                 <div class="form-group text-center">

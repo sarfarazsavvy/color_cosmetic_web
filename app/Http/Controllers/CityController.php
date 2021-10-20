@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use City;
+use App\City;
 
 class CityController extends Controller
 {
@@ -12,7 +12,7 @@ class CityController extends Controller
 // Route::post('/add-city', 'CityController@createCity');
 
     public function cities() {
-        $allcities = City::all();
+        $allCities = City::all();
         return view('all-cities', compact('allCities'));
     }
 
@@ -23,13 +23,11 @@ class CityController extends Controller
     public function createCity(Request $req) {
         
         $city = new City;
-        $city->fill($req->all());
+
+        $city->name = $req->name;
+        $city->state = $req->state;
+
         $city->save();
-
-        // $city->name = $req->name;
-        // $city->state = $req->state;
-
-        // $city->save();
 
     }
 
