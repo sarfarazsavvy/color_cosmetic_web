@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group">
                     <label for="quantity">SKU</label>
-                    <input class="form-control" required type="number" name="sku">
+                    <input class="form-control" required type="text" name="sku">
                 </div>
                 <div class="form-group">
                     <label for="product-name">Product Name</label>
