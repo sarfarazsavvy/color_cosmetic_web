@@ -13,14 +13,17 @@
                 <thead class="table-dark">
                     <th>ID</th>
                     <th>Name</th>
+                    <th>State</th>
                 </thead>
                 <tbody>
-                    <!-- @foreach( $categories as $category )
+                    @foreach( $cities as $city )
                     <tr>
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name}}</td>
+                        <td>{{ $category->state}}</td>
                     </tr>
-                    @endforeach -->
+                    @endforeach
+ 
                 </tbody>
             </table>
         </div>

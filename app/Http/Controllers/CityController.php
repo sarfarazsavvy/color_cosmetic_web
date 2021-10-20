@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use City;
 
 class CityController extends Controller
 {
@@ -21,6 +22,15 @@ class CityController extends Controller
 
     public function createCity(Request $req) {
         
+        $city = new City;
+        $city->fill($req->all());
+        $city->save();
+
+        // $city->name = $req->name;
+        // $city->state = $req->state;
+
+        // $city->save();
+
     }
 
 

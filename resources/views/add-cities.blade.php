@@ -10,19 +10,20 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form action="/add-sub-category" method="post">
+            <form action="/add-city" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input placeholder="Lorem Mart" required type="text" name="name" class="form-control">
+                    <input placeholder="Karach, islamabad" required type="text" name="name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Parent Category</label>
-                    <!-- <select name="category_id" class="form-control">
-                        @foreach( $categories as $category) 
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    </select> -->
+                    <label for="">State</label>
+                    <select name="category_id" class="form-control">
+                        <option value="sindh">Sindh</option>
+                        <option value="sindh">Punjab</option>
+                        <option value="sindh">Balochistan</option>
+                        <option value="sindh">KPK</option>
+                    </select>
                 </div>
                 <div class="form-group text-center">
                     <button required type="submit" name="submit" class="btn btn-primary">Add Category</button>
