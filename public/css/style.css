@@ -1,0 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --red: #af0000;
+    --black: #171717; 
+  }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/*============= PRIMARY TEXT ============*/
+
+.primary-text {
+    color: var(--red);
+}
+
+/* font weight */
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+/* borders */
+
+.border-bottom-5px {
+    border-bottom: 5px solid;
+}
+
+.border-color-red {
+    border-color: var(--red);
+}
+
+/*=============== SIDEBAR ===============*/
+
+.sidebar {
+    background-color: var(--black) !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar .active {
+    background-color: var(--red) !important;
+}
+
+.sidebar .active a {
+    background-color: var(--red) !important;
+}
+
+.profile-sidebar {
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecf2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-sidebar h3 {
+    color: white;
+    font-weight: bold;
+    color: var(--red);
+}
+
+.sidebar ul.nav li a{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar ul.nav li a:hover {
+    background: var(--red);
+}
+
+.sidebar ul.nav ul.children {
+    background-color: var(--black);
+}
+
+.sidebar ul.nav ul.children li a {
+    background-color: var(--black);
+    color: white;
+}
+
+.sidebar ul.nav ul.children li a:hover {
+    background-color: var(--red) !important;
+    color: white;
+}
+
+/* ========== DASHBOARD ========== */
+
+.dashboard-large-btn {
+    background: var(--red);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 12em; */
+    height: 5em;
+    border-radius: 7px;
+    margin-top: 1em;
+}
+
+.dashboard-large-btn:hover {
+
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+
+    box-shadow: 0px 7px 17px 1px rgba(0,0,0,0.52);
+    -webkit-box-shadow: 0px 7px 17px 1px rgba(0,0,0,0.52);
+    -moz-box-shadow: 0px 7px 17px 1px rgba(0,0,0,0.52);
+}

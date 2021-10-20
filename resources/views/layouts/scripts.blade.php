@@ -16,4 +16,10 @@
               scaleFontColor: "#c5c7cc"
           });
       };
+
+		// Sidebar
+
+	  	// var url = window.location.href;
+		// var id = url.substring(url.lastIndexOf('/') + 1);
+		// alert(id);
 	</script>
