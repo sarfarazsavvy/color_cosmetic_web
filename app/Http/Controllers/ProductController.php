@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function allProducts() {
 
         $products = Product::with('category', 'sub_category')->get();
-
+        
         return view("all-products", compact('products'));
     }
 }
