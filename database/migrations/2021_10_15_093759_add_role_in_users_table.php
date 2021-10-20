@@ -14,9 +14,7 @@ class AddRoleInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
-            $table->enum('role',['admin','ceo','ba']);
-            $table->boolean('active')->default(1);
+
         });
     }
 
@@ -29,7 +27,6 @@ class AddRoleInUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn(['role','active']);
         });
     }
 }
