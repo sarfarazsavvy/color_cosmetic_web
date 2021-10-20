@@ -13,6 +13,11 @@
 <!-- SIDEBAR ENDS -->
 
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        @if(session()->has('success'))
+        <div class="alert alert-success">
+            <strong>{{session()->get('success')}}</strong>
+        </div>
+        @endif
         @yield('main')
 	</div>	<!--/.main-->
 
