@@ -46,6 +46,8 @@ Route::post('/add-city', 'CityController@createCity');
 Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors');
 Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm');
 Route::post('/create-beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisor');
+Route::get('/assign-store-to-beauty-advisor-form', 'BeautyAdvisorController@AssignStoreToBeautyAdvisorForm');
+Route::post('/assign-store-to-beauty-advisor', 'BeautyAdvisorController@AssignStoreToBeautyAdvisor');
 // categories
 Route::get('/all-categories', 'CategoryController@allCategories');
 Route::get('/add-category-form', 'CategoryController@addCategoryForm');

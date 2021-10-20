@@ -17,6 +17,9 @@
                 <li><a class="{{ request()->segment(1)=='beauty-advisors' ? 'active' : '' }}" href="/beauty-advisors">
                         <span class="fa fa-arrow-right">&nbsp;</span>Add Beauty Advisor</a>
                 </li>
+                <li><a class="{{ request()->segment(1)=='assign-store-to-beauty-advisor-form' ? 'active' : '' }}" href="/assign-store-to-beauty-advisor-form">
+                        <span class="fa fa-arrow-right">&nbsp;</span>Assign Store to Beauty Advisor</a>
+                </li>
             </ul>
         </li>
 		<li class="parent "><a class="" data-toggle="collapse" href="#sub-item-5">
