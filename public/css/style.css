@@ -100,6 +100,43 @@ body {
     color: white;
 }
 
+.main-sidebar {
+    background-color: var(--black);
+}
+.main-sidebar-toggle-btn {}
+.main-sidebar-body {
+    background-color: var(--black);
+}
+
+.main-sidebar-accordion {
+    background-color: var(--black);
+}
+.main-sidebar-accordion-item {
+    border: none;
+    background-color: var(--black);
+}
+.main-sidebar-accordion-item button {
+    background-color: #0000ff00 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.main-sidebar-accordion-item .heading {}
+.main-sidebar-accordion-heading {}
+.main-sidebar-accordion-heading h2 {}
+.main-sidebar-accordion-heading h2 button {
+    /* color: var(--red); */
+}
+.main-sidebar-collapse {}
+.main-sidebar-accordion-body {}
+.sidebar-navigation {}
+.sidebar-navigation-li {}
+.sidebar-navigation-link {}
+.accordion-button.collapsed {}
+.accordion-button {
+    color: var(--red) !important;
+}
+
+
 /* ========== DASHBOARD ========== */
 
 .dashboard-large-btn {

@@ -43,7 +43,7 @@ Route::get('/all-cities', 'CityController@cities')->name('city.index');
 Route::get('/add-city-form', 'CityController@createCityForm');
 Route::post('/add-city', 'CityController@createCity');
 // beauty girls
-Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors');
+Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors')->name('beauty-advisors');
 Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm');
 Route::post('/create-beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisor');
 Route::get('/assign-store-to-beauty-advisor-form', 'BeautyAdvisorController@AssignStoreToBeautyAdvisorForm');

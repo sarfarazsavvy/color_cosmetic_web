@@ -37,7 +37,7 @@ class BeautyAdvisorController extends Controller
         $ba->password = Hash::make($req->password);
 
         $ba->save();
-        return redirect()->back();
+        return redirect()->route('beauty-advisors')->with('success','Beauty Advisor Added Succesfully!');
     }
 
     public function AssignStoreToBeautyAdvisorForm() {
@@ -74,6 +74,8 @@ class BeautyAdvisorController extends Controller
         $appointment->appointed_at = now();
 
         $appointment->save();
+
+        return redirect()->route('city.index')->with('success','city added');
 
     }
 

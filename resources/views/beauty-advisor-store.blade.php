@@ -14,7 +14,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Beauty Advisor</label>
-                    <select name="user_id" class="form-control">
+                    <select name="user_id" class="form-control ba-girl-select">
                         @foreach( $baGirls as $baGirl) 
                             <option value="{{$baGirl->id}}">{{$baGirl->name}}</option>
                         @endforeach
@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Store</label>
-                    <select name="store_id" class="form-control">
+                    <select name="store_id" class="form-control ba-girl-store-select">
                         @foreach( $stores as $store) 
                             <option value="{{$store->id}}">{{$store->name}}</option>
                         @endforeach
@@ -36,5 +36,14 @@
     </div>
 </div>
 
+@endsection
 
+@section('custom-scripts')
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.ba-girl-select').select2();
+        $('.ba-girl-store-select').select2();
+    });
+</script>
 @endsection

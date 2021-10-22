@@ -46,6 +46,9 @@
                 <li><a class="{{ request()->segment(1)=='add-store-form' ? 'active' : '' }}" href="/add-store-form">
                         <span class="fa fa-arrow-right">&nbsp;</span> Create Stores</a>
                 </li>
+                <li><a class="{{ request()->segment(1)=='add-products-to-store' ? 'active' : '' }}" href="/add-products-to-store">
+                        <span class="fa fa-arrow-right">&nbsp;</span>Add Products To Store</a>
+                </li>
             </ul>
         </li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-3">

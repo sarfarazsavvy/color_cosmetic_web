@@ -23,7 +23,8 @@
 
     <!-- SCRIPTS -->
     @include('layouts.scripts')
-    @yield('scripts')
+
+    @yield('custom-scripts')
 	<!-- SCRIPTS ENDS -->
 </body>
 </html>
