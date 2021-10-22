@@ -18,6 +18,7 @@
                             <th scope="col">Contact</th>
                             <th scope="col">City</th>
                             <th scope="">Province</th>
+                            <th scope="">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,7 @@
                             <td>{{$store->contact}}</td>
                             <td>{{$store->city->name}}</td>
                             <td>{{$store->city->state}}</td>
+                            <td><a href="{{route('store-stock',$store->id)}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

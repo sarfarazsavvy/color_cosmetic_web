@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Store;
+use App\Product;
+use App\StoreStock;
 use App\City;
 
 
@@ -36,6 +38,36 @@ class StoreController extends Controller
         
         $cities = City::all();
         return view('create-store', compact('cities'));
+
+    }
+
+    public function storeStock($id) {  
+        $products = Product::all();
+        $stores = Store::all();
+        $storeStocks = StoreStock::where('store_id',$id)->get();
+        return view('add-product-to-store', compact('products', 'stores', 'storeStocks'));
+    }
+
+    public function AddProductsToStore(Request $req) {
+
+        $existing_stock = StoreStock::where('store_id',$req->store_id)->where('product_id',$req->product_id)->first();
+        if($existing_stock)
+        {
+            $existing_stock->quantity = $existing_stock->quantity + $req->quantity;
+            $existing_stock->save();
+            return redirect()->back()->with('success','Product updated Succesfully!');
+        }
+        else{
+            $storeStock = new StoreStock;
+
+            $storeStock->store_id = $req->store_id;
+            $storeStock->product_id = $req->product_id;
+            $storeStock->price = $req->price;
+            $storeStock->quantity = $req->quantity;
+            
+            $storeStock->save();
+            return redirect()->back()->with('success','Product Added Succesfully!');
+        }
 
     }
 }
