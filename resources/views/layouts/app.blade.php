@@ -8,18 +8,21 @@
 
 <body>
 
-<!-- SIDEBAR -->
+<div class="row">
+    <!-- SIDEBAR -->
 @include('layouts.sidebar')
 <!-- SIDEBAR ENDS -->
-
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main ms-auto">
         @if(session()->has('success'))
         <div class="alert alert-success">
             <strong>{{session()->get('success')}}</strong>
         </div>
         @endif
         @yield('main')
-	</div>	<!--/.main-->
+	</div>
+</div>
+
+	
 
     <!-- SCRIPTS -->
     @include('layouts.scripts')
