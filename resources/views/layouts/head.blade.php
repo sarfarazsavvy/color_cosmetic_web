@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href=" {{ asset('css/plugins/select2/select2.css') }} ">
 	
 	
-	<link href="css/styles.css" rel="stylesheet">
+	<!-- <link href="css/styles.css" rel="stylesheet"> -->
 	<link href="{{ asset('css/style.css') }} " rel="stylesheet">
 
 	<!--Custom Font-->

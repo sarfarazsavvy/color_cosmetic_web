@@ -10,6 +10,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    padding: 0;
+    margin: 0;
 }
 
 /*============= PRIMARY TEXT ============*/
@@ -42,6 +44,160 @@ body {
 
 /*=============== SIDEBAR ===============*/
 
+
+.sidebar {
+    display: block;
+    padding: 0;
+    display: none;
+    box-shadow: none;
+    background: #fff;
+  }
+  
+  .sidebar ul {
+    margin: 20px 0px;
+  }
+  
+  .sidebar form {
+    padding: 10px 0 0 0;
+    margin: 10px 10px 20px 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar {
+      display: block;
+      position: fixed;
+      top: 60px;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      display: block;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  
+    .navbar-header {
+      width: 100%;
+    }
+  }
+  .sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
+    color: #fff;
+    background-color: #000;
+  }
+  
+  .sidebar ul.nav ul, .sidebar ul.nav ul li {
+    list-style: none;
+    list-style-type: none;
+  }
+  
+  .sidebar ul.nav li a {
+    height: 50px;
+    font-size: 15px;
+    line-height: 2em;
+    color: #444444;
+  }
+  
+  .sidebar ul.nav ul.children {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    background: #f9f9f9;
+  }
+  
+  .sidebar ul.nav ul.children li a {
+    height: 40px;
+    background: #f1f4f7;
+    color: #444444;
+  }
+  
+  .sidebar ul.nav li.current a {
+    background-color: #000;
+    color: #fff !important;
+  }
+  
+  .sidebar ul.nav li.parent ul li a {
+    border: none;
+    display: block;
+    padding-left: 30px;
+    line-height: 40px;
+    border-radius: 0;
+  }
+  
+  .sidebar ul.nav li.divider {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0px 0;
+  }
+  
+  .profile-sidebar {
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecf2;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 9999px;
+    margin-right: 5px;
+  }
+  
+  .profile-userpic img {
+    float: left;
+    margin: 10px 0px 0px 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 9999px !important;
+  }
+  
+  .profile-usertitle {
+    float: left;
+    text-align: left;
+    margin: 10px 0 0 12px;
+  }
+  
+  .profile-usertitle-name {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  
+  .profile-usertitle-status {
+    text-transform: uppercase;
+    color: #AAA;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .breadcrumb {
+    border-radius: 0;
+    padding: 10px 15px 10px 15px;
+    background: #e9ecf2;
+    margin: 0;
+  }
+  
+  h1.page-header {
+    margin-top: 20px;
+    border-bottom: 0;
+  }
+  
+  .main-chart {
+    background: #fff;
+  }
+  
+  .easypiechart-panel {
+    text-align: center;
+    padding: 1px 0;
+    margin-bottom: 20px;
+  }
+  
+
 .sidebar {
     background-color: var(--black) !important;
     font-family: 'Poppins', sans-serif;
@@ -50,6 +206,64 @@ body {
 .sidebar .active {
     background-color: var(--red) !important;
 }
+
+.sidebar .nav-item {
+    /* margin: 1em 0em; */
+}
+
+.sidebar .nav-item a {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1em;
+}
+
+.sidebar .children-item {
+
+padding: 1em;
+}
+
+.sidebar .children-item:hover {
+    background-color: var(--red);
+}
+
+.sidebar .children-item:hover a {
+    background-color: var(--red) !important;
+}
+
+.sidebar ul.nav li a {
+    padding: 1em 1em;
+}
+
+.sidebar .nav-pills li a, .nav-pills li a:hover {
+    padding: 0;
+}
+
+.sidebar .nav-item a {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar ul.nav li a {
+    text-decoration: none;
+}
+
+.nav-item-heading {
+   
+}
+
+.nav-item-heading:hover {
+    background-color: var(--red);
+}
+
+/* .sidebar .nav-item:hover {
+} */
 
 .sidebar-logout-btn {
     background: var(--red);

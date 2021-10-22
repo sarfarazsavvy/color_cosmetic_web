@@ -45,19 +45,20 @@ class StoreController extends Controller
         $products = Product::all();
         $stores = Store::all();
         $storeStocks = StoreStock::where('store_id',$id)->get();
-        return view('add-product-to-store', compact('products', 'stores', 'storeStocks'));
+        return view('store-stock', compact('products', 'stores', 'storeStocks', 'id'));
     }
 
     public function AddProductsToStore(Request $req) {
 
         $existing_stock = StoreStock::where('store_id',$req->store_id)->where('product_id',$req->product_id)->first();
+        
         if($existing_stock)
+        
         {
             $existing_stock->quantity = $existing_stock->quantity + $req->quantity;
             $existing_stock->save();
             return redirect()->back()->with('success','Product updated Succesfully!');
-        }
-        else{
+        } else {
             $storeStock = new StoreStock;
 
             $storeStock->store_id = $req->store_id;
