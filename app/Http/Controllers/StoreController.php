@@ -48,9 +48,23 @@ class StoreController extends Controller
         return view('store-stock', compact('products', 'stores', 'storeStocks', 'id'));
     }
 
-    public function AddProductsToStore(Request $req) {
+    public function updateStoreStock(Request $req) {
+        
+        $storeStock = new StoreStock;
+        
+        $id = $req->id;
+        $price = $req->price;
+        $discount = $req->discount;
 
-        $existing_stock = StoreStock::where('store_id',$req->store_id)->where('product_id',$req->product_id)->first();
+        $storeStock->where('id',$id)->update(['price'=> $price, 'discount' => $discount]);
+        return redirect()->back()->with('success','Stock Updated');
+
+        // StoreStock::where('id',$id)->update(['price'=>'Updated title']);
+    }
+
+    public function AddProductsToStore(Request $req) {
+        
+        $existing_stock = StoreStock::where('store_id', $req->store_id)->where('product_id',$req->product_id)->first();
         
         if($existing_stock)
         
@@ -59,13 +73,12 @@ class StoreController extends Controller
             $existing_stock->save();
             return redirect()->back()->with('success','Product updated Succesfully!');
         } else {
+            $product = Product::find($req->product_id);
             $storeStock = new StoreStock;
-
             $storeStock->store_id = $req->store_id;
             $storeStock->product_id = $req->product_id;
-            $storeStock->price = $req->price;
+            $storeStock->price = $product->price; //from proddutc
             $storeStock->quantity = $req->quantity;
-            
             $storeStock->save();
             return redirect()->back()->with('success','Product Added Succesfully!');
         }

@@ -3,11 +3,10 @@
 @section('main')
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-md-3 col-md-6">
-            <div class="login-form d-flex justify-content-center align-items-center">
+        <div class="offset-md-3 mt-5 col-md-6">
+            <div class="login-form">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
                     <div class="form-group row">
                         <label for="email"
                             class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -19,7 +18,7 @@
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </span
                             @enderror
                         </div>
                     </div>

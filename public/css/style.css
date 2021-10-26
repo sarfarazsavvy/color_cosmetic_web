@@ -36,6 +36,12 @@ body {
     border-color: var(--red);
 }
 
+/* background */
+
+.bg-dark {
+    background-color: #171717 !important;
+}
+
 /* =========== THEME ============= */
 
 .theme-container {
@@ -51,6 +57,7 @@ body {
     display: none;
     box-shadow: none;
     background: #fff;
+    top: 55px;
   }
   
   .sidebar ul {
@@ -66,7 +73,8 @@ body {
     .sidebar {
       display: block;
       position: fixed;
-      top: 60px;
+      height: 100%;
+      /* top: 55px;
       bottom: 0;
       left: 0;
       z-index: 1000;
@@ -74,7 +82,7 @@ body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      overflow-y: auto;
+      overflow-y: auto; */
     }
   
     .navbar-header {

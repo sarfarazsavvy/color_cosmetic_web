@@ -5,7 +5,7 @@
 <div class="container py-5 my-5">
     <div class="row">
         <div class="col-12">
-            <h1>Add Product To Store</h1>
+            <h1></h1>
         </div>
     </div>
     <div class="row">
@@ -24,7 +24,9 @@
                         <th scope="col">Name</th>
                         <th scope="col">Store</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Discount</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +39,49 @@
                         <td>{{$storeStock['product']['name']}}</td>
                         <td>{{$storeStock['store']['name']}}</td>
                         <td>{{$storeStock['price']}}</td>
+                        <td>{{$storeStock['discount']}}</td>
                         <td>{{$storeStock['quantity']}}</td>
+                        <td>
+                            <!-- Button trigger modal -->
+                            <a type="button" data-bs-toggle="modal"
+                                data-bs-target="#editStoreStock{{$storeStock['id']}}">
+                                Edit
+                            </a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="editStoreStock{{$storeStock['id']}}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                {{$storeStock['product']['name']}}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/update-store-stock" method="post">
+                                            @csrf
+                                            <input type="hidden" value="{{$storeStock['id']}}" name="id">
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input name="price" placeholder="e.g Rs. 1000" required
+                                                        type="number" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Discount</label>
+                                                    <input name="discount" value="0" required type="number"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="form-group text-center mt-5">
+                                                    <button type="submit" class="btn btn-success">Update</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                     @endif
@@ -65,7 +109,7 @@
                                 <label for="">Select Products</label>
                                 <select required name="product_id" class="form-control ba-girl-select">
                                     @foreach( $products as $product)
-                                    <option value="{{$product->id}}">{{$product->name}}</option>
+                                        <option value="{{$product->id}}">{{$product->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -76,24 +120,13 @@
                                 <label for="quantity">Quantity</label>
                                 <input required type="number" name="quantity" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label for="quantity">Price</label>
-                                <input required type="number" name="price" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="quantity">Discount</label>
-                                <input type="number" name="discount" class="form-control">
-                            </div>
-                            <div class="form-group text-center">
+                            <div class="form-group text-center mt-5">
                                 <button required type="submit" name="submit" class="btn btn-primary">Assign</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

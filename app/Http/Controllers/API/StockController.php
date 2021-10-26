@@ -10,13 +10,18 @@ use App\InventoryLog;
 use App\SubCategory;
 use App\Product;
 use App\StoreStock;
-
+use Carbon\Carbon;
 class StockController extends BaseController
 {
     
     public function addStock(Request $req){
+        
+       
         $product_id = $req->input('product_id');
         $qty = $req->input('qty');
+        $date = $req->input('date');
+        
+        
         if(!$product_id || !$qty)
         {
             return $this->sendError("Params missing product_id,qty");
@@ -47,7 +52,14 @@ class StockController extends BaseController
         if($store_stock->save())
         {   //add inventory log
             $inventory_log = new InventoryLog;
-            $inventory_log->inventory_date = now();
+
+            if(isset($date)) {
+                $inventory_log->inventory_date = Carbon::parse($date)->format('Y-m-d 00:00:00');
+            } else {
+                $dt = Carbon::now()->format('Y-m-d H:i:s');
+                $inventory_log->inventory_date = $dt;
+            }
+
             $inventory_log->store_id = $store->id;
             $inventory_log->product_id = $product_id;
             $inventory_log->quantity = $qty;

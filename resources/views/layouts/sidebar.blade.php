@@ -32,6 +32,7 @@
                 <i class="fa fa-plus"></i>
             </a>
         </li>
+        
         <ul class="children collapse" id="sidebar-menu-2">
             <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
                 <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>All Products</a>
@@ -49,7 +50,7 @@
         </li>
         <ul class="children collapse" id="sidebar-menu-3">
             <li class="children-item {{ request()->segment(1)=='all-stores' ? 'active' : '' }}" href="/all-stores">
-                <a class=""><i class="fa fa-arrow-right"></i>All Stores</a>
+                <a class="" href="/all-stores"><i class="fa fa-arrow-right"></i>All Stores</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-store-form' ? 'active' : '' }}">
                 <a class="" href="/add-store-form"><i class="fa fa-arrow-right"></i>Create Store</a>

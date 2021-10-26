@@ -40,6 +40,7 @@ Route::get('/add-store-form', 'StoreController@createStoreForm');
 Route::post('/add-store', 'StoreController@createStore');
 Route::get('/store-stock/{id}', 'StoreController@storeStock')->name('store-stock');
 Route::post('/add-products-to-store', 'StoreController@AddProductsToStore');
+Route::post('/update-store-stock', 'StoreController@updateStoreStock');
 // cities
 Route::get('/all-cities', 'CityController@cities')->name('city.index');
 Route::get('/add-city-form', 'CityController@createCityForm');
