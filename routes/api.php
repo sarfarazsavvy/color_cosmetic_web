@@ -31,8 +31,10 @@ Route::middleware('auth:sanctum')->group(function(){
     });
     Route::group(['prefix'=>'sale'],function(){
         Route::post('create','SaleController@create');
+        Route::get('summary','SaleController@beauty_advisor_summary');
     });
     
+
 });
 
 Route::get('product-list', 'FetchController@products');

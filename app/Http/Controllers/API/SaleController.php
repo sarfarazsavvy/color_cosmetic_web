@@ -14,6 +14,7 @@ use App\StoreStock;
 use Carbon\Carbon;
 class SaleController extends BaseController
 {
+
     
     public function create(Request $req){
         $product_id = $req->input('product_id');
@@ -44,23 +45,28 @@ class SaleController extends BaseController
         $store_stock->quantity = $store_stock->quantity - $qty;
         
         if($store_stock->save())
-        {   //add inventory log
-            $sale = new Sale;
-            
-            if(isset($date)) {
-                $sale->sale_date = Carbon::parse($date)->format('Y-m-d 00:00:00');
-            } else {
-                $dt = Carbon::now()->format('Y-m-d H:i:s');
-                $sale->sale_date = $dt;
+            {   //add inventory log
+                $sale = new Sale;
+                
+                if(isset($date)) {
+                    $sale->sale_date = Carbon::parse($date)->format('Y-m-d 00:00:00');
+                } else {
+                    $dt = Carbon::now()->format('Y-m-d H:i:s');
+                    $sale->sale_date = $dt;
+                }
+                
+                $sale->store_id = $store->id;
+                $sale->product_id = $product_id;
+                $sale->quantity = $qty;
+                $sale->user_id = auth()->id();
+                $sale->save();
+                return $this->sendResponse(['store_stock'=>$store_stock],'Inventory updated!');
             }
-            
-            $sale->store_id = $store->id;
-            $sale->product_id = $product_id;
-            $sale->quantity = $qty;
-            $sale->user_id = auth()->id();
-            $sale->save();
-            return $this->sendResponse(['store_stock'=>$store_stock],'Inventory updated!');
+            return $this->sendError("Something went wrong!");
         }
-        return $this->sendError("Something went wrong!");
-    }
+        
+        public function beauty_advisor_summary(Request $req) {
+            $user = auth()->user();
+            dd($user);
+        }
 }

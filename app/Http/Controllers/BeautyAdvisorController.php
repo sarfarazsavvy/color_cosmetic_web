@@ -75,7 +75,7 @@ class BeautyAdvisorController extends Controller
 
         $appointment->save();
 
-        return redirect()->route('beauty-advisors')->with('success','Store Assigned to Beaty Advisor');
+        return redirect()->route('beauty-advisors')->with('success','Store Assigned to Beauty Advisor');
 
     }
 

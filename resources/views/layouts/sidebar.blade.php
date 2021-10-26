@@ -27,6 +27,19 @@
         </ul>
 
         <li class="nav-item">
+            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-sales" aria-expanded="false">
+                <span>Sales</span>
+                <i class="fa fa-plus"></i>
+            </a>
+        </li>
+        
+        <ul class="children collapse" id="sidebar-sales">
+            <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
+                <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>BA Sales</a>
+            </li>
+        </ul>
+
+        <li class="nav-item">
             <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-2" aria-expanded="false">
                 <span>Products</span>
                 <i class="fa fa-plus"></i>
@@ -97,6 +110,7 @@
                 <i class="fa fa-plus"></i>
             </a>
         </li>
+
         <ul class="children collapse" id="sidebar-menu-6">
             <li class="children-item {{ request()->segment(1)=='all-sub-categories' ? 'active' : '' }}" >
                 <a href="/all-sub-categories"><i class="fa fa-arrow-right"></i>All Sub Categories</a>
