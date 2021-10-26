@@ -18,9 +18,10 @@ class SaleController extends BaseController
     public function create(Request $req){
         $product_id = $req->input('product_id');
         $qty = $req->input('qty');
-        if(!$product_id || !$qty)
+        $date =$req->input('date');
+        if(!$product_id || !$qty || !$date)
         {
-            return $this->sendError("Params missing product_id,qty");
+            return $this->sendError("Params missing product_id,qty,date");
         }
         $product = Product::find($product_id);
         $store = auth()->user()->stores()->first();
@@ -40,10 +41,18 @@ class SaleController extends BaseController
         }
         
         $store_stock->quantity = $store_stock->quantity - $qty;
+        
+        
+        
         if($store_stock->save())
         {   //add inventory log
             $sale = new Sale;
-            $sale->sale_date = now();
+            
+            if(isset($date)){
+                $sale->sale_date =$date->format('Y-m-d');
+            }else{
+                $sale->sale_date = now();                
+            }
             $sale->store_id = $store->id;
             $sale->product_id = $product_id;
             $sale->quantity = $qty;
