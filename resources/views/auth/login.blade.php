@@ -1,11 +1,15 @@
-@extends('layouts.main')
 
-@section('main')
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Welcome</h1>
+            <h4>Revlon Color Cosmetic</h4>
+        </div>
+    </div>
     <div class="row">
         <div class="offset-md-3 mt-5 col-md-6">
             <div class="login-form">
-                <form method="POST" action="{{ route('login') }}">
+                <form class="theme-form" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group row">
                         <label for="email"
@@ -70,4 +74,3 @@
         </div>
     </div>
 </div>
-@endsection

@@ -14,6 +14,7 @@
                 <i class="fa fa-plus"></i>
             </a>
         </li>
+
         <ul class="children collapse" id="sidebar-menu-1">
             <li class="children-item {{ request()->segment(1)=='all-ba-girls' ? 'active' : '' }}">
                 <a class="" href="/all-ba-girls"><i class="fa fa-arrow-right"></i>All Beauty Advisors</a>
@@ -217,6 +218,7 @@
                 </li>
             </ul>
         </li> -->
+        
         <form action="{{route('logout')}}" method="post"> @csrf
             <li><button class="btn sidebar-logout-btn" type="submit" href="" onClick=""><em
                         class="fa fa-power-off">&nbsp;</em> Logout</button></li>

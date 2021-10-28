@@ -74,15 +74,6 @@ body {
       display: block;
       position: fixed;
       height: 100%;
-      /* top: 55px;
-      bottom: 0;
-      left: 0;
-      z-index: 1000;
-      display: block;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      overflow-y: auto; */
     }
   
     .navbar-header {
@@ -229,8 +220,7 @@ body {
 }
 
 .sidebar .children-item {
-
-padding: 1em;
+  padding: 1em;
 }
 
 .sidebar .children-item:hover {
@@ -383,4 +373,17 @@ padding: 1em;
     box-shadow: 0px 7px 17px 1px rgba(0,0,0,0.52);
     -webkit-box-shadow: 0px 7px 17px 1px rgba(0,0,0,0.52);
     -moz-box-shadow: 0px 7px 17px 1px rgba(0,0,0,0.52);
+}
+
+/* ========== FORMS ========== */
+
+.theme-form {
+  background-color: black;
+  color: var(--red);
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.theme-form .form-group {
+  margin: 1.2em 0em;
 }

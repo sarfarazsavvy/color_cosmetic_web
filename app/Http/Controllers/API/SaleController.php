@@ -66,7 +66,18 @@ class SaleController extends BaseController
         }
         
         public function beauty_advisor_summary(Request $req) {
+
             $user = auth()->user();
-            dd($user);
+            $userId = $user->id;
+            $unitSold = 0;
+            $dt = Carbon::now()->format('Y-m-d');
+            $beautyAdvisorSale = Sale::with('store', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get();
+            
+            foreach( $beautyAdvisorSale as $sale ) {
+                $unitSold += $sale->quantity;
+            }
+
+            // dd($beautyAdvisorSale);
+            return $this->sendResponse(['beauty_sales'=>$beautyAdvisorSale, 'unit_sold'=> $unitSold],'Inventory updated!');
         }
 }
