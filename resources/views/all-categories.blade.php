@@ -19,6 +19,13 @@
                     <tr>
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name}}</td>
+                        <td>
+                            <form method="post" action="delete-category">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$category->id}}" class="form-control">
+                                <button type="submit" class="btn">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

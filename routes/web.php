@@ -34,6 +34,7 @@ Route::post('/add-products', 'ProductController@addProduct');
 // categories 
 Route::post('/add-category', 'CategoryController@addCategory');
 Route::post('/add-sub-category', 'CategoryController@addSubCategory');
+Route::post('/delete-category', 'CategoryController@deleteCategory');
 // stores
 Route::get('/all-stores', 'StoreController@stores');
 Route::get('/add-store-form', 'StoreController@createStoreForm');

@@ -30,6 +30,12 @@ class CategoryController extends Controller
     
         return redirect()->back()->with('success','Category Added Succesfully!');
     }
+
+    public function deleteCategory(Request $req) {
+        $category = new Category;
+        $category->where('id', $req->id)->delete();
+        return redirect()->back()->with('success','Category Deleted!');
+    }
     
     public function allSubCategories() {
 
