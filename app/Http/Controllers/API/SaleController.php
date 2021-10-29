@@ -25,24 +25,22 @@ class SaleController extends BaseController
         //     ["product_id":4,"qty":20]
         // ]
         
-        if(!$product_id || !$qty)
-        {
+        if(!$product_id || !$qty) {
             return $this->sendError("Params missing product_id,qty");
         }
+
         $product = Product::find($product_id);
         $store = auth()->user()->stores()->first();
-        if(!$product)
-        {
+        
+        if(!$product) {
             return $this->sendError("Product does not exist");
         }
-        if(!$store)
-        {
+        if(!$store) {
             return $this->sendError("You are not associated with any store");
         }
 
         $store_stock = StoreStock::where('store_id',$store->id)->where('product_id',$product_id)->first();
-        if(!$store_stock)
-        {
+        if(!$store_stock) {
             return $this->sendError("Product does not exist in stock!");
         }
         
@@ -101,34 +99,32 @@ class SaleController extends BaseController
         }
 
         public function overal_category_wise_sale() {
+            
+            $sales = Sale::with('product','product.category')->get();
 
-            $sales = Sale::with('product.category')->whereMonth('sale_date', date('m'))->get();
-           
-            
-            $total =0;
-            $data =[];
-            // if(isset($sales)){
-            //    foreach($sales as $key => $sal){
-            //     $total += $sal->quantity;
-            //             $cat
-            //             foreach($sal->product as $p){
-            //                 array_push($data,[
-            //                 "cat_name" =>$p['category']['name'],
-                         
-            //             ]);        
-            //             }
+            $data = [];
+            $total = 0;
+            if(isset($sales)) {
+                foreach( $sales as $sale ) {
+                    $total += $sale->quantity;
+                   array_push($data, [
+                        'id' => $sale->id,
+                        'sale_date'=>$sale->sale_date,
+                        'price'=>$sale->price,
+                        'quantity'=>$sale->quantity,
+                        'category'=>$sale['product'][0]['category']['name'],
+                    ]);
+                    
+                }
+            }
 
-            //     }
-            
-            // }
-            
-        
-            return $this->sendResponse(['total' =>$total,'data'=>$data] ,'Monthly CEO Data recieved succesfully!');
-            
+            $dataCollection = collect($data);
+
+            $_dataCollection = $dataCollection->groupBy('category')->map(function ($row) {
+                return $row->sum('quantity');
+            });;
+
+            return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
         }
-
-
-      
-
 
 }

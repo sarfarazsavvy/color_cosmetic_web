@@ -13,6 +13,7 @@
                 <thead class="table-dark">
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     @foreach( $categories as $category )
@@ -26,7 +27,7 @@
                                 <button type="submit" class="btn">Delete</button>
                             </form>
                         </td>
-                    </tr>
+                    </tr> 
                     @endforeach
                 </tbody>
             </table>
