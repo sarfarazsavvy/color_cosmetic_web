@@ -20,6 +20,10 @@ class SaleController extends BaseController
         $product_id = $req->input('product_id');
         $qty = $req->input('qty');
         $date =$req->input('date');
+        // [
+        //     ["product_id":3,"qty":10],
+        //     ["product_id":4,"qty":20]
+        // ]
         
         if(!$product_id || !$qty)
         {
@@ -43,6 +47,7 @@ class SaleController extends BaseController
         }
         
         $store_stock->quantity = $store_stock->quantity - $qty;
+        $price = $store_stock->price * $qty;
         
         if($store_stock->save())
             {   //add inventory log
@@ -58,6 +63,7 @@ class SaleController extends BaseController
                 $sale->store_id = $store->id;
                 $sale->product_id = $product_id;
                 $sale->quantity = $qty;
+                $sale->price = $price; 
                 $sale->user_id = auth()->id();
                 $sale->save();
                 return $this->sendResponse(['store_stock'=>$store_stock],'Inventory updated!');
@@ -78,6 +84,50 @@ class SaleController extends BaseController
             }
 
             // dd($beautyAdvisorSale);
-            return $this->sendResponse(['beauty_sales'=>$beautyAdvisorSale, 'unit_sold'=> $unitSold],'Inventory updated!');
+            return $this->sendResponse(['beauty_sales'=>$beautyAdvisorSale, 'unit_sold'=> $unitSold],'Success!');
         }
+
+        public function overal_sales() {
+            $sales = Sale::whereMonth('sale_date', date('m'))->get();
+            $totalUnit = 0;
+            $totalSale = 0;
+            foreach( $sales as $sale ) {
+                $totalUnit += $sale->quantity;
+                $totalSale += $sale->price;
+            }
+
+            return $this->sendResponse(['sales_in_unit'=> $totalUnit, 'sales_in_rupees'=>$totalSale] ,'Monthly CEO Data recieved succesfully!');
+        }
+
+        public function overal_category_wise_sale() {
+
+            $sales = Sale::with('product.category')->whereMonth('sale_date', date('m'))->get();
+           
+            
+            $total =0;
+            $data =[];
+            // if(isset($sales)){
+            //    foreach($sales as $key => $sal){
+            //     $total += $sal->quantity;
+            //             $cat
+            //             foreach($sal->product as $p){
+            //                 array_push($data,[
+            //                 "cat_name" =>$p['category']['name'],
+                         
+            //             ]);        
+            //             }
+
+            //     }
+            
+            // }
+            
+        
+            return $this->sendResponse(['total' =>$total,'data'=>$data] ,'Monthly CEO Data recieved succesfully!');
+            
+        }
+
+
+      
+
+
 }

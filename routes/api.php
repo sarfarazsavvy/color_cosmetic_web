@@ -29,11 +29,16 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::group(['prefix'=>'inventory'],function(){
         Route::post('add','StockController@addStock');
     });
+    
     Route::group(['prefix'=>'sale'],function(){
         Route::post('create','SaleController@create');
         Route::get('summary','SaleController@beauty_advisor_summary');
     });
-    
+
+    Route::group(['prefix'=>'ceo'], function() {
+        Route::get('overal-sales','SaleController@overal_sales');
+        Route::get('overal-category-wise-sale', 'SaleController@overal_category_wise_sale');
+    });
 
 });
 
