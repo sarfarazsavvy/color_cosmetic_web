@@ -15,59 +15,69 @@ use Carbon\Carbon;
 class SaleController extends BaseController
 {
 
-    
     public function create(Request $req){
+
+        $product_id =[];
+        $qty =[];
         $product_id = $req->input('product_id');
         $qty = $req->input('qty');
         $date =$req->input('date');
-        // [
-        //     ["product_id":3,"qty":10],
-        //     ["product_id":4,"qty":20]
-        // ]
-        
-        if(!$product_id || !$qty) {
-            return $this->sendError("Params missing product_id,qty");
-        }
 
-        $product = Product::find($product_id);
         $store = auth()->user()->stores()->first();
 
-        if(!$product) {
+        if(!$product_id) {
             return $this->sendError("Product does not exist");
         }
         if(!$store) {
             return $this->sendError("You are not associated with any store");
         }
 
-        $store_stock = StoreStock::where('store_id',$store->id)->where('product_id',$product_id)->first();
-        if(!$store_stock) {
-            return $this->sendError("Product does not exist in stock!");
+        if(!$product_id || !$qty) {
+            return $this->sendError("Params missing product_id,qty");
         }
-        
-        $store_stock->quantity = $store_stock->quantity - $qty;
-        $price = $store_stock->price * $qty;
-        
-        if($store_stock->save())
-            {   //add inventory log
-                $sale = new Sale;
-                
-                if(isset($date)) {
-                    $sale->sale_date = Carbon::parse($date)->format('Y-m-d 00:00:00');
-                } else {
-                    $dt = Carbon::now()->format('Y-m-d H:i:s');
-                    $sale->sale_date = $dt;
-                }
-                
-                $sale->store_id = $store->id;
-                $sale->product_id = $product_id;
-                $sale->quantity = $qty;
-                $sale->price = $price; 
-                $sale->user_id = auth()->id();
-                $sale->save();
-                return $this->sendResponse(['store_stock'=>$store_stock],'Inventory updated!');
+        $i = 0;
+        $sale_date = '';
+        if(isset($date)) {
+            $sale_date = Carbon::parse($date)->format('Y-m-d 00:00:00');
+        } else {
+            $sale_date = Carbon::now()->format('Y-m-d H:i:s');
+        }
+        $todays_sale = Sale::whereDate('created_at',$sale_date)->where('store_id',$store->id)->first();
+        foreach ($product_id as $index=>$pro){
+            $store_stock = StoreStock::where('store_id',$store->id)->where('product_id',$pro)->first();
+            if(!$store_stock) {
+                return $this->sendError("Product does not exist in stock!");
             }
-            return $this->sendError("Something went wrong!");
+            $price = $store_stock->price * $qty[$index];
+            $sale = new Sale;
+
+            $sale->sale_date = $sale_date;
+            $sale->store_id = $store->id;
+            $sale->product_id = $pro;
+            $sale->quantity = $qty[$index];
+            $sale->price = $price;
+            $sale->user_id = auth()->id();
+            if(!$todays_sale)
+            {
+                $sale->status = 1;
+            }
+            else{
+                $sale->status = 0;
+            }
+            $sale->save();
+
+
+            if(!$todays_sale)
+            {
+                $store_stock->quantity = $store_stock->quantity - $qty[$index];
+                $store_stock->save();
+            }
+
         }
+        return $this->sendResponse(['store_stock'=>$store_stock],'Inventory updated!');
+
+        }
+
         
         public function beauty_advisor_summary(Request $req) {
 
@@ -75,10 +85,8 @@ class SaleController extends BaseController
             $userId = $user->id;
             $unitSold = 0;
             $dt = Carbon::now()->format('Y-m-d');
-            // $beautyAdvisorSale = Sale::with('store', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get();
-            $beautyAdvisorSale = Sale::with('store', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get();
-            // dd($beautyAdvisorSale);
-            
+            $beautyAdvisorSale = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get();
+
             foreach( $beautyAdvisorSale as $sale ) {
                 $unitSold += $sale->quantity;
             }
