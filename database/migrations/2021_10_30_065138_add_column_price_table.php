@@ -17,7 +17,6 @@ class AddColumnPriceTable extends Migration
             $table->unsignedBigInteger('price');
         });
     }
-
     /**
      * Reverse the migrations.
      *
