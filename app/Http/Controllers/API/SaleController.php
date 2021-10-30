@@ -31,7 +31,7 @@ class SaleController extends BaseController
 
         $product = Product::find($product_id);
         $store = auth()->user()->stores()->first();
-        
+
         if(!$product) {
             return $this->sendError("Product does not exist");
         }
@@ -76,7 +76,7 @@ class SaleController extends BaseController
             $unitSold = 0;
             $dt = Carbon::now()->format('Y-m-d');
             // $beautyAdvisorSale = Sale::with('store', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get();
-            $beautyAdvisorSale = Sale::with('store', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get(); 
+            $beautyAdvisorSale = Sale::with('store', 'product', 'product.category')->where('user_id', $userId)->where('sale_date', $dt)->get();
             // dd($beautyAdvisorSale);
             
             foreach( $beautyAdvisorSale as $sale ) {
@@ -99,7 +99,7 @@ class SaleController extends BaseController
         }
 
         public function overal_category_wise_sale() {
-            
+
             $sales = Sale::with('product','product.category')->get();
 
             $data = [];
@@ -114,7 +114,7 @@ class SaleController extends BaseController
                         'quantity'=>$sale->quantity,
                         'category'=>$sale['product'][0]['category']['name'],
                     ]);
-                    
+
                 }
             }
 
