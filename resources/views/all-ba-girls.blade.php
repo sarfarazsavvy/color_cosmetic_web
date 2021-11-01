@@ -15,7 +15,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </thead>
                     <tbody>
                         @foreach( $baGirls as $baGirl )
@@ -23,20 +23,24 @@
                             <td>{{ $baGirl->id }}</td>
                             <td>{{ $baGirl->name }}</td>
                             <td>{{ $baGirl->email }}</td>
-                            <td>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#baStatusModal{{$baGirl->id}}">
-                                    Launch demo modal
-                                </button>
+                            <td class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}</td>
+                            <!-- <td> -->
+                                <!-- trigger -->
+                                <!-- <a class="btn" data-bs-toggle="modal" data-bs-target="#baStatusModal{{$baGirl->id}}">Edit</a> -->
                                 <!-- Modal -->
-                                <div class="modal fade" id="baStatusModal{{$baGirl->id}}" tabindex="-1"
+                                <!-- <div class="modal fade" id="baStatusModal{{$baGirl->id}}" tabindex="-1"
                                     aria-labelledby="baStatusModal{{$baGirl->id}}Label" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-body">
+                                            <div class="modal-body p-5">
                                                 <h3>{{$baGirl->name}}</h3>
-                                                <h5>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}</h5>
+                                                <h5 class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}</h5>
+                                                <p class="mt-5">Are you sure you want to deactivate this Beauty Advisor?</p>
+                                                <form method="post" action="/deactivate-ba">
+                                                @csrf
+                                                    <input type="hidden" name="id" value="{{ $baGirl->id }}">
+                                                    <button type="submit" class="btn btn-danger">Yes!</button>
+                                                </form>
                                             </div>  
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -45,9 +49,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td><a class="btn">Edit</a></td>
+                                </div> -->
+                            <!-- </td> -->
+                        
                         </tr>
                         @endforeach
                     </tbody>

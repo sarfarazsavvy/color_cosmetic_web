@@ -217,7 +217,7 @@
                         <span class="fa fa-arrow-right">&nbsp;</span>Add Sub Categories</a>
                 </li>
             </ul>
-        </li> -->
+        </li> -->   
         
         <form action="{{route('logout')}}" method="post"> @csrf
             <li><button class="btn sidebar-logout-btn" type="submit" href="" onClick=""><em

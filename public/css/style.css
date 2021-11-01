@@ -200,6 +200,7 @@ body {
 .sidebar {
     background-color: var(--black) !important;
     font-family: 'Poppins', sans-serif;
+    overflow: scroll;
 }
 
 .sidebar .active {
@@ -292,6 +293,7 @@ body {
 .sidebar ul.nav li a{
     color: white;
     font-family: 'Poppins', sans-serif;
+    padding: 1em 2.3em;
 }
 
 .sidebar ul.nav li a:hover {

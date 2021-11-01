@@ -52,6 +52,7 @@ Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm'
 Route::post('/create-beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisor');
 Route::get('/assign-store-to-beauty-advisor-form', 'BeautyAdvisorController@AssignStoreToBeautyAdvisorForm');
 Route::post('/assign-store-to-beauty-advisor', 'BeautyAdvisorController@AssignStoreToBeautyAdvisor');
+Route::post('/deactivate-ba', 'BeautyAdvisorController@deactivate_ba');
 // categories
 Route::get('/all-categories', 'CategoryController@allCategories');
 Route::get('/add-category-form', 'CategoryController@addCategoryForm');

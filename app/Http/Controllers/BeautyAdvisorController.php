@@ -29,6 +29,7 @@ class BeautyAdvisorController extends Controller
     }
 
     public function createBeautyAdvisor(Request $req) {
+
         $ba = new User();
         
         $ba->name = $req->name;
@@ -58,10 +59,7 @@ class BeautyAdvisorController extends Controller
         $appointment = new Appointment;
 
         if(!$baGirlStore == null) {
-           
-            DB::table('user_stores')
-              ->where('id', $baGirlStore->id)
-              ->update(['store_id' => $storeId]);
+            DB::table('user_stores')->where('id', $baGirlStore->id)->update(['store_id' => $storeId]);
         } else {
 
             $userStore->user_id = $req->user_id;
