@@ -127,4 +127,20 @@ class SaleController extends BaseController
             return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
         }
 
+        public function region_wise_sale() {
+            $sales = Sale::with('product', 'store', 'product.category')->get();
+            // $sindhSaleTotal = 0;
+            // $punjabSaleTotal = 0;
+            $sindhSale = [];
+            $punjabSale = [];
+
+            if (isset( $sales)) {
+                foreach( $sales as $sale ) {
+                    array_push($sindhSale, [
+                    
+                    ]);
+                }
+            }
+        }
+
 }

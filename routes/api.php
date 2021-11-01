@@ -39,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::group(['prefix'=>'ceo'], function() {
         Route::get('overal-sales','SaleController@overal_sales');
         Route::get('overal-category-wise-sale', 'SaleController@overal_category_wise_sale');
+        Route::get('overal-region-sale', 'SaleController@region_wise_sale');
     });
 
 });
