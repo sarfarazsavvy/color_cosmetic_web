@@ -27,8 +27,8 @@
                             <td>{{$product->sku_code}}</td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->price}}</td>
-                            <td>{{$product->category->name}}</td>
-                            <td>{{$product->sub_category->name}}</td>
+                            <td>{{isset($product->category) ? $product->category->name : '-'}}</td>
+                            <td>{{isset($product->sub_category) ? $product->sub_category->name : '-'}}</td>
                         </tr>
                         @endforeach
                     </tbody>
