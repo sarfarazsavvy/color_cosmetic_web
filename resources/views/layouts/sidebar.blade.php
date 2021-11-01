@@ -38,6 +38,9 @@
             <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
                 <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>BA Sales</a>
             </li>
+            <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
+                <a class="" href="{{route('pending_sales')}}"><i class="fa fa-arrow-right"></i>Pending Sales</a>
+            </li>
         </ul>
 
         <li class="nav-item">

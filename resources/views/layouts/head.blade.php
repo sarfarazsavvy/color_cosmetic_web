@@ -8,7 +8,7 @@
 
 	<!-- Plugins -->
 	<link rel="stylesheet" href=" {{ asset('css/plugins/select2/select2.css') }} ">
-	
+	@stack('plugin-styles')
 	
 	<!-- <link href="css/styles.css" rel="stylesheet"> -->
 	<link href="{{ asset('css/style.css') }} " rel="stylesheet">

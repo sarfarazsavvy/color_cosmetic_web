@@ -137,93 +137,15 @@ class SaleController extends BaseController
             return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
         }
 
-        public function region_wise_sale() {
 
+        public function region_wise_sale(){
 
-
-            // $categories = ProductCategory::with([
-            //     'products'=>function($ps) use($auth_user){
-            //         $ps->selectRaw("*, (SELECT sum(qty) FROM `sold_products` where `products`.`id` = `sold_products`.`product_id`) as product_qty_sum");
-            //         $ps->whereHas('solds',function($solds) use($auth_user){
-            //                 return $solds->whereHas('sale', function($q2) use($auth_user){
-            //                     return $q2->whereHas('user',function($u) use($auth_user){
-            //                         return $u->whereHas('parent_asm',function($u) use($auth_user){
-            //                             return $u->where('email',$auth_user->email);
-            //                         });
-            //                     });
-            //             });
-            //         });
-            //     }
-            //     ])->whereHas('products.solds',function($solds) use($auth_user){  
-            //         return $solds->whereHas('sale', function($q2) use($auth_user){
-            //             return $q2->whereHas('user',function($u) use($auth_user){
-            //                 return $u->whereHas('parent_asm',function($u) use($auth_user){
-            //                     return $u->where('email',$auth_user->email);
-            //                 });
-            //             });
-            //         });
-            //     })
-            //     ->get();
-    
-            $sales = Sale::with('product', 'store', 'product.category')->get();
-
-            // $sindhSaleTotal = 0;
-            // $punjabSaleTotal = 0;
-            // $punjabSale = [];
-
-            $totalUnitsSoldCategoryWise = [];
-            $totalUnitsSoldRegionWise = [];
-            $totalPriceOfUnitSoldCategoryWise = 0;
-            $totalAllUnitsSoldRegionWise = [];
-            $totalAllUnitsSoldInAllRegions = [];
-            $totalPriceOfAllUnitsSoldAllRegions = [];
-            $regionWiseUnitSale = [];
-            
-            if (isset( $sales)) {
-
-                function return_sum($data) {
-                    $sum = 0;
-
-                    $sum += $data;
-                    return $sum;
-                }
- 
-                foreach( $sales as $sale ) {
-
-                    $quantity = return_sum($sale->quantity);
-
-                    array_push($totalUnitsSoldRegionWise, [
-                        'id' => $sale->id,
-                        'sale_date'=>$sale->sale_date,
-                        'price'=>$sale->price,
-                        'quantity'=> $sale->quantity,
-                        'region'=>$sale['store'][0]['city']['state'],
-                        'category'=>$sale['product'][0]['category']['name']
-                    ]);
-
-                    array_push($totalUnitsSoldCategoryWise, [
-                        'id' => $sale->id,
-                        'sale_date'=>$sale->sale_date,
-                        'price'=>$sale->price,
-                        'quantity'=> $sale->quantity,
-                        'region'=>$sale['store'][0]['city']['state'],
-                        'category'=>$sale['product'][0]['category']['name']
-                    ]);
-                }
-            }
-
-            $totalUnitsSoldCategoryWise = collect($totalUnitsSoldCategoryWise);
-            $totalUnitsSoldRegionWise = collect($totalUnitsSoldRegionWise);
-
-            // $_regionWiseUnitSaleCollection = $regionWiseUnitSaleCollection->groupBy('region')->map(function ($row) {
-            //     return $row->sum('unit');
-            // });
-        
-            $totalUnitsSoldRegionWise = $totalUnitsSoldRegionWise->groupBy('region');
-            $totalUnitsSoldCategoryWise = $totalUnitsSoldCategoryWise->groupBy('category');
-
-            // dd($regionWiseUnitSale);
-
-            return $this->sendResponse(['region_wise_sale' =>$totalUnitsSoldRegionWise, 'category_wise_sale' => $totalUnitsSoldCategoryWise ], 'CEO! Region wise sale recieved!');
+            $sales = Sale::with(['store'])
+                ->whereHas('store',function($s){
+                    return $s->whereHas('city',function($c){
+                    return $c->wherestate('sindh');
+                    });
+                })->get();
+               dd($sales);
         }
 }
