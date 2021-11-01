@@ -136,4 +136,15 @@ class SaleController extends BaseController
             return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
         }
 
+
+        public function region_wise_sale(){
+
+            $sales = Sale::with(['store'])
+                ->whereHas('store',function($s){
+                    return $s->whereHas('city',function($c){
+                    return $c->wherestate('sindh');
+                    });
+                })->get();
+               dd($sales);
+        }
 }
