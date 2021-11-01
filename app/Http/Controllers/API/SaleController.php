@@ -44,7 +44,7 @@ class SaleController extends BaseController
             $sale_date = Carbon::now()->format('Y-m-d H:i:s');
         }
         $todays_sale = Sale::whereDate('created_at',$sale_date)->where('store_id',$store->id)->first();
-        foreach ($product_id as $index=>$pro){
+        foreach ((array) $product_id as $index=>$pro){
             $store_stock = StoreStock::where('store_id',$store->id)->where('product_id',$pro)->first();
             if(!$store_stock) {
                 return $this->sendError("Product does not exist in stock!");
@@ -155,16 +155,21 @@ class SaleController extends BaseController
                 })->get();
             
             $sindhTotalUnits = 0;
+            $sindhTotalPrice = 0;
             $sindhTotalUnitByCategory = 0;
             $sindhTotalPriceByCategory = 0;
-            $sindhTotalPrice = 0;
             $sindhSale = [];
 
             $punjabTotalUnits = 0;
+            $punjabTotalPrice = 0;
             $punjabTotalUnitByCategory = 0;
             $punjabTotalPriceByCategory = 0;
-            $punjabTotalPrice = 0;
             $punjabSale = [];
+
+            $totalUnits = 0;
+            $totalPrice = 0;
+            $totalUnitByCategory = [];
+            $totalPriceByCategory = [];
 
             if(isset($sindhSales)) {
                 foreach( $sindhSales as $sale ) {
@@ -226,11 +231,23 @@ class SaleController extends BaseController
                 return $row->sum('price');
             });
 
+            $totalUnits = $punjabTotalUnits + $sindhTotalUnits;
+            $totalPrice = $punjabTotalPrice + $sindhTotalPrice; 
 
+            $totalUnitByCategory = array();
+            foreach (array_keys($sindhTotalUnitByCategory->toArray() + $punjabTotalUnitByCategory->toArray()) as $key) {
+                $totalUnitByCategory[$key] = @($sindhTotalUnitByCategory[$key] + $punjabTotalUnitByCategory[$key]);
+            }
 
-            return $this->sendResponse(['sindh' =>$sindhSale, 'punjab'=>$punjabSales, 'sindh_total_units' => $sindhTotalUnits, 'sindh_total_units_price' => $sindhTotalPrice, 'sindh_total_price_by_category' => $sindhTotalPriceByCategory, 'sindh_total_unit_by_category' => $sindhTotalUnitByCategory, 
-                                        'punjab' =>$punjabSale, 'punjab'=>$punjabSales, 'punjab_total_units' => $punjabTotalUnits, 'punjab_total_units_price' => $punjabTotalPrice, 'punjab_total_price_by_category' => $punjabTotalPriceByCategory, 'punjab_total_unit_by_category' => $punjabTotalUnitByCategory 
-                                       ] ,'CEO! Region Wise Data Recieved!');
+            $totalPriceByCategory = array();
+            foreach (array_keys($sindhTotalPriceByCategory->toArray() + $punjabTotalPriceByCategory->toArray()) as $key) {
+                $totalPriceByCategory[$key] = @($sindhTotalPriceByCategory[$key] + $punjabTotalPriceByCategory[$key]);
+            }
+
+            return $this->sendResponse(['sindh' => ['total_units' => $sindhTotalUnits, 'total_price' => $sindhTotalPrice, 'total_unit_by_category'=> $sindhTotalUnitByCategory, 'total_price_by_category' => $sindhTotalPriceByCategory ],
+                                        'punjab' => ['total_units' => $punjabTotalUnits, 'total_price' => $punjabTotalPrice, 'total_unit_by_category'=> $punjabTotalUnitByCategory, 'total_price_by_category' => $punjabTotalPriceByCategory],
+                                        'total' => ['units' => $totalUnits, 'price' => $totalPrice, 'total_price_by_category' => $totalPriceByCategory, 'total_unit_by_category' => $totalUnitByCategory]
+                                        ],'CEO! Region Wise Data Recieved!');
 
         }
 }
