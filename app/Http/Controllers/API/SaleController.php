@@ -140,12 +140,97 @@ class SaleController extends BaseController
 
         public function region_wise_sale(){
 
-            $sales = Sale::with(['store'])
-                ->whereHas('store',function($s){
-                    return $s->whereHas('city',function($c){
-                    return $c->wherestate('sindh');
+            $sindhSales = Sale::with(['store', 'product'])
+                ->whereHas('store',function($c){
+                    return $c->whereHas('city',function($c){
+                        return $c->wherestate('sindh');
                     });
                 })->get();
-               dd($sales);
+
+            $punjabSales = Sale::with(['store', 'product'])
+                ->whereHas('store',function($c){
+                    return $c->whereHas('city',function($c){
+                        return $c->wherestate('punjab');
+                    });
+                })->get();
+            
+            $sindhTotalUnits = 0;
+            $sindhTotalUnitByCategory = 0;
+            $sindhTotalPriceByCategory = 0;
+            $sindhTotalPrice = 0;
+            $sindhSale = [];
+
+            $punjabTotalUnits = 0;
+            $punjabTotalUnitByCategory = 0;
+            $punjabTotalPriceByCategory = 0;
+            $punjabTotalPrice = 0;
+            $punjabSale = [];
+
+            if(isset($sindhSales)) {
+                foreach( $sindhSales as $sale ) {
+
+                   $sindhTotalUnits += $sale->quantity;
+                   $sindhTotalPrice += $sale->price;
+                   
+                   array_push($sindhSale, [
+                        'id' => $sale->id,
+                        'sale_date'=>$sale->sale_date,
+                        'price'=>$sale->price,
+                        'quantity'=>$sale->quantity,
+                        'category'=>$sale['product'][0]['category']['name'],
+                    ]);
+                }
+            }
+
+            if(isset($punjabSales)) {
+                foreach( $punjabSales as $sale ) {
+                   $punjabTotalUnits += $sale->quantity;
+                   $punjabTotalPrice += $sale->price;
+                   array_push($punjabSale, [
+                        'id' => $sale->id,
+                        'sale_date'=>$sale->sale_date,
+                        'price'=>$sale->price,
+                        'quantity'=>$sale->quantity,
+                        'category'=>$sale['product'][0]['category']['name'],
+                    ]);
+                }
+            }
+
+        
+            $sindhSale = collect($sindhSale);
+
+            $sindhTotalUnitByCategory = collect($sindhTotalUnitByCategory);
+            $sindhTotalPriceByCategory = collect($sindhTotalPriceByCategory);
+
+            $sindhTotalUnitByCategory = $sindhSale->groupBy('category')->map(function ($row) {
+                return $row->sum('quantity');
+            });
+            
+            $sindhTotalPriceByCategory = $sindhSale->groupBy('category')->map(function ($row) {
+                return $row->sum('price');
+            });
+
+            // =====================================
+            
+
+            $punjabSale = collect($punjabSale);
+
+            $punjabTotalUnitByCategory = collect($punjabTotalUnitByCategory);
+            $punjabTotalPriceByCategory = collect($punjabTotalPriceByCategory);
+
+            $punjabTotalUnitByCategory = $punjabSale->groupBy('category')->map(function ($row) {
+                return $row->sum('quantity');
+            });
+            
+            $punjabTotalPriceByCategory = $punjabSale->groupBy('category')->map(function ($row) {
+                return $row->sum('price');
+            });
+
+
+
+            return $this->sendResponse(['sindh' =>$sindhSale, 'punjab'=>$punjabSales, 'sindh_total_units' => $sindhTotalUnits, 'sindh_total_units_price' => $sindhTotalPrice, 'sindh_total_price_by_category' => $sindhTotalPriceByCategory, 'sindh_total_unit_by_category' => $sindhTotalUnitByCategory, 
+                                        'punjab' =>$punjabSale, 'punjab'=>$punjabSales, 'punjab_total_units' => $punjabTotalUnits, 'punjab_total_units_price' => $punjabTotalPrice, 'punjab_total_price_by_category' => $punjabTotalPriceByCategory, 'punjab_total_unit_by_category' => $punjabTotalUnitByCategory 
+                                       ] ,'CEO! Region Wise Data Recieved!');
+
         }
 }

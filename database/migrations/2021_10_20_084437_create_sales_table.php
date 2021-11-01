@@ -19,7 +19,7 @@ class CreateSalesTable extends Migration
             $table->unsignedBigInteger('store_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('price');
+            // $table->unsignedBigInteger('price');
             $table->integer('quantity');
             $table->timestamps();
         });

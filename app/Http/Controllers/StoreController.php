@@ -25,6 +25,8 @@ class StoreController extends Controller
         $store->city_id = $req->city;
 
         $store->save();
+
+        return redirect()->back()->with('success','Store Created Succesfully!');
     }
 
     public function stores() {
