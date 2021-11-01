@@ -15,9 +15,14 @@ class Sale extends Model
         return $this->hasMany(Store::class, 'id', 'store_id');
     }
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
     public function store_stock()
     {
-        return $this->hasMany(StoreStock::class, 'id', 'store_id');
+        return $this->hasMany(StoreStock::class, 'product_id', 'product_id');
     }
 
     public function product()

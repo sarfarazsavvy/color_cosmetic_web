@@ -26,3 +26,5 @@
 		// var id = url.substring(url.lastIndexOf('/') + 1);
 		// alert(id);
 	</script>
+	@stack('plugin-scripts')
+	@stack('custom-scripts')

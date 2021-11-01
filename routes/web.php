@@ -61,6 +61,10 @@ Route::get('/all-sub-categories', 'CategoryController@allSubCategories');
 Route::get('/add-sub-category-form', 'CategoryController@addSubCategoryForm');
 Route::get('/add-sub-category', 'CategoryController@addSubCategory');
 
+//Sales Pending
+Route::get('/pending/sales', 'ProductController@pending_sales')->name('pending_sales');
+Route::get('/approved/sales', 'ProductController@approved_sales')->name('sales.pending');
+
 
 
 
