@@ -27,11 +27,15 @@ Route::group(['middleware'=>'auth'],function(){
 // });
 
 
-// products 
-Route::get('/all-products', 'ProductController@allProducts');
+// products
+Route::get('/all-products', 'ProductController@allProducts')->name('product.index');
 Route::get('/add-products-form', 'ProductController@addProductForm');
-Route::post('/add-products', 'ProductController@addProduct');
-// categories 
+Route::post('/add-products', 'ProductController@addProduct')->name('add.product');
+Route::get('/edit/product/{id}', 'ProductController@edit')->name('edit');
+Route::post('/update/product/{id}', 'ProductController@update')->name('update.product');
+Route::get('/remove/product/{id}', 'ProductController@destroy')->name('remove.product');
+
+// categories
 Route::post('/add-category', 'CategoryController@addCategory');
 Route::post('/add-sub-category', 'CategoryController@addSubCategory');
 Route::post('/delete-category', 'CategoryController@deleteCategory');
@@ -65,6 +69,7 @@ Route::get('/add-sub-category', 'CategoryController@addSubCategory');
 //Sales Pending
 Route::get('/pending/sales', 'ProductController@pending_sales')->name('pending_sales');
 Route::get('/approved/sales', 'ProductController@approved_sales')->name('sales.pending');
+
 
 
 

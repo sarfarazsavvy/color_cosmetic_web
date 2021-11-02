@@ -22,7 +22,7 @@
                     <tr>
                         <td>{{ $subCategory->id }}</td>
                         <td>{{ $subCategory->name}}</td>
-                        <td>{{ $subCategory->category->name }}</td>
+                        <td>{{isset($subCategory->category) ? $subCategory->category->name : '-' }}</td>
                     </tr>
                     @endforeach
                 </tbody>

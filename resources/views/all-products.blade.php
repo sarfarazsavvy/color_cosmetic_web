@@ -18,6 +18,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Category</th>
                             <th scope="col">Sub Category</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,11 @@
                             <td>{{$product->price}}</td>
                             <td>{{isset($product->category) ? $product->category->name : '-'}}</td>
                             <td>{{isset($product->sub_category) ? $product->sub_category->name : '-'}}</td>
+                            <td>
+                                <a href="{{route('edit',$product->id)}}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a href="{{route('remove.product',$product->id)}}"><i style="color: red;" class="fa fa-trash"></i></a>
+                            </td>
+
                         </tr>
                         @endforeach
                     </tbody>

@@ -34,10 +34,53 @@ class ProductController extends Controller
     }
 
     public function allProducts() {
-            
+
         $products = Product::with('category', 'sub_category')->get();
-        
         return view("all-products", compact('products'));
+    }
+
+    public function edit($id)
+    {
+        $categories =Category::orderBy('id','desc')->get();
+        $sub_categories =SubCategory::orderBy('id','desc')->get();
+        $product=Product::find($id);
+        if(!$product){
+            request()->session()->flash('error','products not found');
+        }
+        return view('edit_product',compact('product','categories','sub_categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product=Product::find($id);
+
+        $product->sku_code =$request->get('sku');
+        $product->name =$request->get('name');
+        $product->price =$request->get('price');
+        $product->category_id =$request->get('category_id');
+        $product->sub_category_id =$request->get('sub_category_id');
+        $product->save();
+
+        return redirect()->route('product.index');
+    }
+
+    public function destroy($id)
+    {
+        $product=Product::find($id);
+        if($product){
+            $status=$product->delete();
+            if($status){
+                request()->session()->flash('success','Product successfully deleted');
+            }
+            else{
+                request()->session()->flash('error','Error, Please try again');
+            }
+            return redirect()->route('product.index');
+        }
+        else{
+            request()->session()->flash('error','Product not found');
+            return redirect()->back();
+        }
     }
 
     public function pending_sales(){
@@ -57,7 +100,6 @@ class ProductController extends Controller
         }
 //Sales
         $sales =Sale::where('product_id',$id)->where('status',0)->first();
-
         $sales->status = 1;
         $sales->save();
 
