@@ -64,6 +64,7 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
+
     public function destroy($id)
     {
         $product=Product::find($id);
