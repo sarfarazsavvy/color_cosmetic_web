@@ -13,9 +13,11 @@ class ProductController extends Controller
 {
     public function addProductForm() {
         $cats = Category::all();
-        $subCats = SubCategory::all(); 
-
+        $subCats = SubCategory::all();
+        
+        $request->session()->flash('success', 'Record successfully added!');
         return view('add-products', compact('cats', 'subCats'));
+        
     }
 
     public function addProduct(Request $req) {
@@ -34,9 +36,11 @@ class ProductController extends Controller
     }
 
     public function allProducts() {
-
+        $cats = Category::all();
+        $subCats = SubCategory::all(); 
         $products = Product::with('category', 'sub_category')->get();
-        return view("all-products", compact('products'));
+        
+        return view("all-products", compact('products', 'cats', 'subCats'));
     }
 
     public function edit($id)

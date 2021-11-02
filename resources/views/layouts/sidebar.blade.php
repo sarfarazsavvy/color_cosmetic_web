@@ -52,7 +52,7 @@
         
         <ul class="children collapse" id="sidebar-inventory-managment">
             <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
-                <a class="" href="/all-products"><i class="fa fa-circle-thin me-2"></i>All Products</a>
+                <a class="" href="/all-products"><i class="fa fa-circle-thin me-2"></i>Products</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-products-form' ? ' active' : '' }}">
                 <a class="" href="/add-products-form"><i class="fa fa-circle-thin me-2"></i>Add Products</a>
