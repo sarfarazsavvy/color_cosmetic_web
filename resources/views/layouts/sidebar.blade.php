@@ -8,7 +8,7 @@
     <ul class="nav nav-pills flex-column mb-auto menu p-0">
 
         <li class="nav-item">
-            <a class="{{ request()->segment(1)=='all-ba-girls' ? 'active' : '' }}" href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-1"
+            <a class="" href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-1"
                 aria-expanded="false">
                 <span>BEAUTY ADVISORS</span>
                 <i class="fa fa-caret-down"></i>

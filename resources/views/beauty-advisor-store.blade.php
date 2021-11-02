@@ -28,8 +28,8 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group text-center">
-                    <button required type="submit" name="submit" class="btn btn-primary">Assign</button>
+                <div class="form-group text-center mt-3">
+                    <button required type="submit" name="submit" class="btn bg-red text-white">Assign</button>
                 </div>
             </form>
         </div>
