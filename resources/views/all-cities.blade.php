@@ -16,6 +16,7 @@
                     <th>State</th>
                     <th>Action</th>
                 </thead>
+
                 <tbody>
                     @foreach($city as $c )
                     <tr>
