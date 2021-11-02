@@ -70,16 +70,16 @@
                 <a href="{{route('city.create')}}"><i class="fa fa-circle-thin me-2"></i>Add City</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='all-categories' ? 'active' : '' }}">
-                <a href="/all-categories"><i class="fa fa-circle-thin me-2"></i>All Categories</a>
+                <a href="{{route('category.index')}}"><i class="fa fa-circle-thin me-2"></i>All Categories</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-category-form' ? 'active' : '' }}">
-                <a href="/add-category-form"><i class="fa fa-circle-thin me-2"></i>Add Catogories</a>
+                <a href="{{route('category.create')}}"><i class="fa fa-circle-thin me-2"></i>Add Catogories</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='all-sub-categories' ? 'active' : '' }}" >
-                <a href="/all-sub-categories"><i class="fa fa-circle-thin me-2"></i>All Sub Categories</a>
+                <a href="{{route('sub_category.index')}}"><i class="fa fa-circle-thin me-2"></i>All Sub Categories</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-sub-category-form' ? 'active' : '' }}">
-                <a href="/add-sub-category-form"><i class="fa fa-circle-thin me-2"></i>Add Sub Category</a>
+                <a href="{{route('sub_category.create')}}"><i class="fa fa-circle-thin me-2"></i>Add Sub Category</a>
             </li>
         </ul>
 

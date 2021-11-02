@@ -21,10 +21,11 @@
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name}}</td>
                         <td>
-                            <form method="post" action="delete-category">
+                            <a href="{{route('category.edit',$category->id)}}"><i class="fa fa-edit"></i></a>
+                            <form method="POST" action="{{route('category.destroy',[$category->id])}}">
                                 @csrf
-                                <input type="hidden" name="id" value="{{$category->id}}" class="form-control">
-                                <button type="submit" class="btn">Delete</button>
+                                @method('delete')
+                                <button class="fa fa-trash" data-id={{$category->id}} style="" data-toggle="tooltip" data-placement="bottom" title="Delete"></button>
                             </form>
                         </td>
                     </tr> 

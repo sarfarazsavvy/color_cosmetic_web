@@ -50,6 +50,9 @@ Route::post('/update-store', 'StoreController@updateStore');
 // cities
 
 Route::resource('/city', 'CityController');
+Route::resource('/category', 'CategoryController');
+Route::resource('/sub_category', 'SubCategoryController');
+
 
 // beauty girls
 Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors')->name('beauty-advisors');
@@ -58,14 +61,6 @@ Route::post('/create-beauty-advisors', 'BeautyAdvisorController@createBeautyAdvi
 Route::get('/assign-store-to-beauty-advisor-form', 'BeautyAdvisorController@AssignStoreToBeautyAdvisorForm');
 Route::post('/assign-store-to-beauty-advisor', 'BeautyAdvisorController@AssignStoreToBeautyAdvisor');
 Route::post('/deactivate-ba', 'BeautyAdvisorController@deactivate_ba');
-// categories
-Route::get('/all-categories', 'CategoryController@allCategories');
-Route::get('/add-category-form', 'CategoryController@addCategoryForm');
-Route::get('/add-category', 'CategoryController@addCategory');
-// sub sub-categories
-Route::get('/all-sub-categories', 'CategoryController@allSubCategories');
-Route::get('/add-sub-category-form', 'CategoryController@addSubCategoryForm');
-Route::get('/add-sub-category', 'CategoryController@addSubCategory');
 
 //Sales Pending
 Route::get('/pending/sales', 'ProductController@pending_sales')->name('pending_sales');
