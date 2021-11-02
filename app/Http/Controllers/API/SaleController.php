@@ -243,10 +243,34 @@ class SaleController extends BaseController
                 $totalPriceByCategory[$key] = @($sindhTotalPriceByCategory[$key] + $punjabTotalPriceByCategory[$key]);
             }
 
-            return $this->sendResponse(['sindh' => ['total_units' => $sindhTotalUnits, 'total_price' => $sindhTotalPrice, 'total_unit_by_category'=> $sindhTotalUnitByCategory, 'total_price_by_category' => $sindhTotalPriceByCategory ],
-                                        'punjab' => ['total_units' => $punjabTotalUnits, 'total_price' => $punjabTotalPrice, 'total_unit_by_category'=> $punjabTotalUnitByCategory, 'total_price_by_category' => $punjabTotalPriceByCategory],
-                                        'total' => ['units' => $totalUnits, 'price' => $totalPrice, 'total_price_by_category' => $totalPriceByCategory, 'total_unit_by_category' => $totalUnitByCategory]
-                                        ],'CEO! Region Wise Data Recieved!');
+            //first row is sindh
+
+
+
+            $final_array = [
+                [isset($sindhTotalUnitByCategory['Eyes']) ? $sindhTotalUnitByCategory['Eyes'] : 0 , isset($sindhTotalUnitByCategory['Lips']) ? $sindhTotalUnitByCategory['Lips'] : 0 , isset($sindhTotalUnitByCategory['Face']) ? $sindhTotalUnitByCategory['Face'] : 0 , isset($sindhTotalUnitByCategory['Nail']) ? $sindhTotalUnitByCategory['Nail'] : 0, $sindhTotalUnits],
+                [isset($punjabTotalUnitByCategory['Eyes']) ? $punjabTotalUnitByCategory['Eyes'] : 0 , isset($punjabTotalUnitByCategory['Lips']) ? $punjabTotalUnitByCategory['Lips'] : 0 , isset($punjabTotalUnitByCategory['Face']) ? $punjabTotalUnitByCategory['Face'] : 0 , isset($punjabTotalUnitByCategory['Nail']) ? $punjabTotalUnitByCategory['Nail'] : 0, $punjabTotalUnits ],
+                [isset($totalPriceByCategory['Eyes']) ? $totalPriceByCategory['Eyes'] : 0, isset($totalPriceByCategory['Lips']) ? $totalPriceByCategory['Lips'] : 0, isset($totalPriceByCategory['Face']) ? $totalPriceByCategory['Face'] : 0, isset($totalPriceByCategory['Nails']) ? $totalPriceByCategory['Nails'] : 0, $totalPrice ],
+                [isset($totalUnitByCategory['Eyes']) ? $totalUnitByCategory['Eyes'] : 0, isset($totalUnitByCategory['Lips']) ? $totalUnitByCategory['Lips'] : 0, isset($totalUnitByCategory['Face']) ? $totalUnitByCategory['Face'] : 0, isset($totalUnitByCategory['Nails']) ? $totalUnitByCategory['Nails'] : 0, $totalUnits]
+            ];
+
+            /* [
+                [10,12,15,11,48],
+                [8,13,13,8,42],
+                [18,25,28,19,90],
+                [30508,63190,101973,16210,211881]
+            ]
+
+            */
+            //
+            //
+            
+            // return $this->sendResponse(['sindh' => ['total_units' => $sindhTotalUnits, 'total_price' => $sindhTotalPrice, 'total_unit_by_category'=> $sindhTotalUnitByCategory, 'total_price_by_category' => $sindhTotalPriceByCategory ],
+            //                             'punjab' => ['total_units' => $punjabTotalUnits, 'total_price' => $punjabTotalPrice, 'total_unit_by_category'=> $punjabTotalUnitByCategory, 'total_price_by_category' => $punjabTotalPriceByCategory],
+            //                             'total' => ['units' => $totalUnits, 'price' => $totalPrice, 'total_price_by_category' => $totalPriceByCategory, 'total_unit_by_category' => $totalUnitByCategory]
+            //                             ],'CEO! Region Wise Data Recieved!');
+
+            return $this->sendResponse(['region_wise_summary' => $final_array], 'CEO! Region wise data recieved');
 
         }
 }

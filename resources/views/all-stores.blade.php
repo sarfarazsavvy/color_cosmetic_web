@@ -37,8 +37,8 @@
                             <td>{{$store->name}}</td>
                             <td>{{$store->address}}</td>
                             <td>{{$store->contact}}</td>
-                            <td>{{$store->city->name}}</td>
-                            <td>{{$store->city->state}}</td>
+                            <td>{{isset($store->city) ? $store->city->name : '-'}}</td>
+                            <td>{{isset($store->city) ? $store->city->state : '-'}}</td>
                             <td><a class="primary-text font-weight-bold" href="{{route('store-stock',$store->id)}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                         </tr>
                         @endforeach

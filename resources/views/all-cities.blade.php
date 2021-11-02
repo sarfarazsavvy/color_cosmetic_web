@@ -5,7 +5,7 @@
 <div class="container py-5 my-5">
     <div class="row">
         <div class="col-12">
-            <h1>All Cities</h1>
+            <h1 class="my-5 primary-text">All Cities</h1>
         </div>
     </div>
     <div class="col-12">
@@ -24,11 +24,11 @@
                         <td>{{ $c->name}}</td>
                         <td>{{ $c->state}}</td>
                         <td>
-                            <a href="{{route('city.edit',$c->id)}}"><i class="fa fa-edit"></i></a>
                             <form method="POST" action="{{route('city.destroy',[$c->id])}}">
                                 @csrf
                                 @method('delete')
-                                <button class="fa fa-trash" data-id={{$c->id}} style="" data-toggle="tooltip" data-placement="bottom" title="Delete"></button>
+                                <a href="{{route('city.edit',$c->id)}}"><i class="fa fa-edit"></i></a>
+                                <button class="btn" data-id="{{$c->id}}" style="" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash primary-text"></i></button>
                             </form>
                         </td>
                     </tr>
