@@ -334,7 +334,8 @@ body {
 
 .sidebar ul.nav ul.children li a {
     background-color: var(--black);
-    color: white;
+    color: #ffffffe0;
+    font-weight: 200;
 }
 
 .sidebar ul.nav ul.children li a:hover {
