@@ -12,6 +12,30 @@ body {
     font-weight: 400;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
+}
+
+/* ============= SCROLLER ================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff000061; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b300008a; 
 }
 
 /*============= PRIMARY TEXT ============*/
@@ -40,6 +64,10 @@ body {
 
 .bg-dark {
     background-color: #171717 !important;
+}
+
+.bg-red {
+  background-color: var(--red);
 }
 
 /* =========== THEME ============= */
@@ -346,10 +374,24 @@ body {
 .sidebar-navigation-li {}
 .sidebar-navigation-link {}
 .accordion-button.collapsed {}
+
 .accordion-button {
     color: var(--red) !important;
 }
 
+/* =========== Login ============== */
+
+.login-form-parent h1 {
+  font-size: 5em;
+  font-weight: 300;
+  color: var(--red);
+}
+.login-form-parent h4 {
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 2em;
+    color: var(--red);
+}
 
 /* ========== DASHBOARD ========== */
 
@@ -380,7 +422,7 @@ body {
 /* ========== FORMS ========== */
 
 .theme-form {
-  background-color: black;
+  background-color: #0000006b;
   color: var(--red);
   padding: 1em;
   border-radius: 4px;

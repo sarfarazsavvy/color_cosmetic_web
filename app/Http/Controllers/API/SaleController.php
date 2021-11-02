@@ -107,7 +107,6 @@ class SaleController extends BaseController
             return $this->sendResponse(['sales_in_unit'=> $totalUnit, 'sales_in_rupees'=>$totalSale] ,'Monthly CEO Data recieved succesfully!');
         }
 
-
         public function overal_category_wise_sale() {
 
             $sales = Sale::with('product','product.category')->get();
