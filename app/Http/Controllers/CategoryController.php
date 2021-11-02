@@ -8,59 +8,75 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-   
-    public function allCategories() {
 
-        $categories = Category::all();
+    public function index()
+    {
+
+        $categories = Category::get();
         return view('all-categories', compact('categories'));
-    
+
     }
 
-    public function addCategoryForm() {
+    public function create()
+    {
 
         return view('add-categories');
-    
+
     }
 
-    public function addCategory(Request $req) {
-        
+    public function store(Request $req)
+    {
+
         $category = new Category;
         $category->name = $req->name;
         $category->save();
-    
-        return redirect()->back()->with('success','Category Added Succesfully!');
+
+        return redirect()->back()->with('success', 'Category Added Succesfully!');
     }
 
-    public function deleteCategory(Request $req) {
-        $category = new Category;
-        $category->where('id', $req->id)->delete();
-        return redirect()->back()->with('success','Category Deleted!');
-    }
-    
-    public function allSubCategories() {
 
-        $subCategories = SubCategory::with('category')->get();
-        return view('all-sub-categories', compact('subCategories'));
-    
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('edit_categories', compact('category'));
     }
 
-    public function addSubCategoryForm() {
-        $categories = Category::all();
-        return view('add-sub-categories', compact('categories'));
+    public function update(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->save();
+
+        if ($category) {
+            request()->session()->flash('success', 'Category successfully updated');
+        } else {
+            request()->session()->flash('error', 'Error, Please try again');
+        }
+        return redirect()->route('category.index');
     }
 
-    public function addSubCategory(Request $req) {
-        
-        $subCategory = new SubCategory;
-        $subCategory->name = $req->name;
-        $subCategory->category_id = $req->category_id;
-        $subCategory->save();
-    
-        return redirect()->back()->with('success','Category Added Succesfully!');
+
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        if ($category) {
+            $status = $category->delete();
+            if ($status) {
+                request()->session()->flash('success', 'Categories successfully deleted');
+            } else {
+                request()->session()->flash('error', 'Error, Please try again');
+            }
+            return redirect()->route('category.index');
+        } else {
+            request()->session()->flash('error', 'Category not found');
+
+        }
+        return redirect()->back();
     }
+
+    public function show()
+    {
+
+    }
+
 }
-
-
-// allCategories = get all categories
-// addCategoryForm = add category form
-// addCategory = adds category in database

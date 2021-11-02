@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form action="/add-sub-category" method="post">
+            <form action="{{route('sub_category.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
