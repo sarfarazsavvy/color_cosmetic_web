@@ -9,7 +9,7 @@
                 <h5>Category Managment</h5>
                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#newCategoryModal">
                     Add New Category
-                </button>
+                </button>   
                 <button type="button" class="btn btn-dark" data-bs-toggle="modal"
                     data-bs-target="#newSabCategoryModal">
                     Add New Sub Category
