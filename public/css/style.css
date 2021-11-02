@@ -66,6 +66,10 @@ body {
     background-color: #171717 !important;
 }
 
+.bg-red {
+  background-color: var(--red);
+}
+
 /* =========== THEME ============= */
 
 .theme-container {
@@ -375,6 +379,19 @@ body {
     color: var(--red) !important;
 }
 
+/* =========== Login ============== */
+
+.login-form-parent h1 {
+  font-size: 5em;
+  font-weight: 300;
+  color: var(--red);
+}
+.login-form-parent h4 {
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 2em;
+    color: var(--red);
+}
 
 /* ========== DASHBOARD ========== */
 
@@ -405,7 +422,7 @@ body {
 /* ========== FORMS ========== */
 
 .theme-form {
-  background-color: black;
+  background-color: #0000006b;
   color: var(--red);
   padding: 1em;
   border-radius: 4px;
