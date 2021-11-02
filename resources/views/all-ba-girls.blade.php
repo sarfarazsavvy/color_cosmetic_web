@@ -9,7 +9,7 @@
                 <h1>All beauty Advisors</h1>
             </div>
             <div class="col-12">
-                <table class="table">
+                <table id="allBaGirls" class="table">
                     <thead class="table-dark">
                         <th>ID</th>
                         <th>Name</th>
@@ -54,6 +54,9 @@
                         
                         </tr>
                         @endforeach
+                    
+                        
+                    
                     </tbody>
                 </table>
             </div>
@@ -61,4 +64,7 @@
     </div>
 </div>
 @endsection
+
+
+
 

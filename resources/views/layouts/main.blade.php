@@ -8,7 +8,7 @@
 
 <body>
 
-	<div class="col-md-9 col-lg-9 main">
+	<div class="col-md-9 col-lg-10 main">
         @yield('main')
 	</div>	<!--/.main-->
 
