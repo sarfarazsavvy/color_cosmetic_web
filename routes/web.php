@@ -47,9 +47,9 @@ Route::get('/store-stock/{id}', 'StoreController@storeStock')->name('store-stock
 Route::post('/add-products-to-store', 'StoreController@AddProductsToStore');
 Route::post('/update-store-stock', 'StoreController@updateStoreStock');
 // cities
-Route::get('/all-cities', 'CityController@cities')->name('city.index');
-Route::get('/add-city-form', 'CityController@createCityForm');
-Route::post('/add-city', 'CityController@createCity');
+
+Route::resource('/city', 'CityController');
+
 // beauty girls
 Route::get('/all-ba-girls', 'BeautyAdvisorController@beautyAdvisors')->name('beauty-advisors');
 Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm');

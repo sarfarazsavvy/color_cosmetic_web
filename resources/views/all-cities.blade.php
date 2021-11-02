@@ -14,13 +14,22 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>State</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
-                    @foreach($allCities as $city )
+                    @foreach($city as $c )
                     <tr>
-                        <td>{{ $city->id }}</td>
-                        <td>{{ $city->name}}</td>
-                        <td>{{ $city->state}}</td>
+                        <td>{{ $c->id }}</td>
+                        <td>{{ $c->name}}</td>
+                        <td>{{ $c->state}}</td>
+                        <td>
+                            <a href="{{route('city.edit',$c->id)}}"><i class="fa fa-edit"></i></a>
+                            <form method="POST" action="{{route('city.destroy',[$c->id])}}">
+                                @csrf
+                                @method('delete')
+                                <button class="fa fa-trash" data-id={{$c->id}} style="" data-toggle="tooltip" data-placement="bottom" title="Delete"></button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
  

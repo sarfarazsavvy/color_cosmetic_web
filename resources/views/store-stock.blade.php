@@ -33,14 +33,16 @@
                     @if ($storeStocks == null)
                     <h1 class="text-danger">No Stock Found</h1>
                     @else
+                    <?php $i =0; ?>
                     @foreach( $storeStocks as $storeStock )
-                    <tr>
-                        <th scope="row">{{$storeStock['id']}}</th>
-                        <td>{{$storeStock['product']['name']}}</td>
-                        <td>{{$storeStock['store']['name']}}</td>
-                        <td>{{$storeStock['price']}}</td>
-                        <td>{{$storeStock['discount']}}</td>
-                        <td>{{$storeStock['quantity']}}</td>
+                    <?php $i++ ?>
+                        <tr>
+                        <th scope="row">{{$i}}</th>
+                        <td>{{isset($storeStock->product) ?  $storeStock->product->name : '-'}}</td>
+                        <td>{{isset($storeStock->store) ?  $storeStock->store->name : '-'}}</td>
+                        <td>{{$storeStock->price}}</td>
+                        <td>{{$storeStock->discount}}</td>
+                        <td>{{$storeStock->quantity}}</td>
                         <td>
                             <!-- Button trigger modal -->
                             <a type="button" data-bs-toggle="modal"
@@ -55,7 +57,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">
-                                                {{$storeStock['product']['name']}}</h5>
+                                                {{isset($storeStock->product) ? $storeStock->product->name: '-'}}</h5>
                                         </div>
                                         <div class="modal-body">
                                             <form action="/update-store-stock" method="post">

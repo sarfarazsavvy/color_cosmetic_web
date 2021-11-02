@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form action="/add-city" method="post">
+            <form action="{{route('city.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>

@@ -64,10 +64,10 @@
                 <a class="" href="/add-store-form"><i class="fa fa-circle-thin me-2"></i>Create Store</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='all-cities' ? 'active' : '' }}">
-                <a href="/all-cities"><i class="fa fa-circle-thin me-2"></i>All Cities</a>
+                <a href="{{route('city.index')}}"><i class="fa fa-circle-thin me-2"></i>All Cities</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-city-form' ? 'active' : '' }}">
-                <a href="/add-city-form"><i class="fa fa-circle-thin me-2"></i>Add City</a>
+                <a href="{{route('city.create')}}"><i class="fa fa-circle-thin me-2"></i>Add City</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='all-categories' ? 'active' : '' }}">
                 <a href="/all-categories"><i class="fa fa-circle-thin me-2"></i>All Categories</a>
