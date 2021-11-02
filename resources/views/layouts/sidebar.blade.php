@@ -7,11 +7,10 @@
 
     <ul class="nav nav-pills flex-column mb-auto menu p-0">
 
-        <!-- Beauty Advisor -->
         <li class="nav-item">
             <a class="{{ request()->segment(1)=='all-ba-girls' ? 'active' : '' }}" href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-1"
                 aria-expanded="false">
-                <span>Beauty Adviors</span>
+                <span>BEAUTY ADVISORS</span>
                 <i class="fa fa-plus"></i>
             </a>
         </li>
@@ -28,106 +27,54 @@
             </li>
         </ul>
 
-        <!-- Sales -->
         <li class="nav-item">
             <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-sales" aria-expanded="false">
-                <span>Sales</span>
+                <span>SALES</span>
                 <i class="fa fa-plus"></i>
             </a>
         </li>
         
         <ul class="children collapse" id="sidebar-sales">
-            <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
-                <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>BA Sales</a>
+            <li class="children-item {{ request()->segment(1)=='ba-sales' ? 'active' : '' }}">
+                <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>BA SALES</a>
+            </li>
+            <li class="children-item {{ request()->segment(1)=='sales' ? 'active' : '' }}">
+                <a class="" href="{{route('pending_sales')}}"><i class="fa fa-arrow-right"></i>Pending Sales</a>
             </li>
         </ul>
 
         <li class="nav-item">
-            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-sales" aria-expanded="false">
-                <span>Sales</span>
+            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-inventory-managment" aria-expanded="false">
+                <span>INVENTORY MANAGMENT</span>
                 <i class="fa fa-plus"></i>
             </a>
         </li>
         
-        <ul class="children collapse" id="sidebar-sales">
-            <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
-                <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>BA Sales</a>
-            </li>
-        </ul>
-
-        <li class="nav-item">
-            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-2" aria-expanded="false">
-                <span>Products</span>
-                <i class="fa fa-plus"></i>
-            </a>
-        </li>
-        
-        <ul class="children collapse" id="sidebar-menu-2">
+        <ul class="children collapse" id="sidebar-inventory-managment">
             <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
                 <a class="" href="/all-products"><i class="fa fa-arrow-right"></i>All Products</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-products-form' ? ' active' : '' }}">
                 <a class="" href="/add-products-form"><i class="fa fa-arrow-right"></i>Add Products</a>
             </li>
-        </ul>
-
-        <li class="nav-item">
-            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-3" aria-expanded="false">
-                <span>Store</span>
-                <i class="fa fa-plus"></i>
-            </a>
-        </li>
-        <ul class="children collapse" id="sidebar-menu-3">
             <li class="children-item {{ request()->segment(1)=='all-stores' ? 'active' : '' }}" href="/all-stores">
                 <a class="" href="/all-stores"><i class="fa fa-arrow-right"></i>All Stores</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-store-form' ? 'active' : '' }}">
                 <a class="" href="/add-store-form"><i class="fa fa-arrow-right"></i>Create Store</a>
             </li>
-            <li class="children-item {{ request()->segment(1)=='assign-store-to-beauty-advisor-form' ? 'active' : '' }}">
-                <a href="/assign-store-to-beauty-advisor-form"><i class="fa fa-arrow-right"></i>Assign Store to Beauty Advisor</a>
-            </li>
-        </ul>
-
-        <li class="nav-item">
-            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-4" aria-expanded="false">
-                <span>City</span>
-                <i class="fa fa-plus"></i>
-            </a>
-        </li>
-
-        <ul class="children collapse" id="sidebar-menu-4">
             <li class="children-item {{ request()->segment(1)=='all-cities' ? 'active' : '' }}">
                 <a href="/all-cities"><i class="fa fa-arrow-right"></i>All Cities</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-city-form' ? 'active' : '' }}">
                 <a href="/add-city-form"><i class="fa fa-arrow-right"></i>Add City</a>
             </li>
-        </ul>
-
-        <li class="nav-item">
-            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-5" aria-expanded="false">
-                <span>Categories</span>
-                <i class="fa fa-plus"></i>
-            </a>
-        </li>
-        <ul class="children collapse" id="sidebar-menu-5">
             <li class="children-item {{ request()->segment(1)=='all-categories' ? 'active' : '' }}">
                 <a href="/all-categories"><i class="fa fa-arrow-right"></i>All Categories</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='add-category-form' ? 'active' : '' }}">
                 <a href="/add-category-form"><i class="fa fa-arrow-right"></i>Add Catogories</a>
             </li>
-        </ul>
-
-        <li class="nav-item">
-            <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-menu-6" aria-expanded="false">
-                <span>Sub Categories</span>
-                <i class="fa fa-plus"></i>
-            </a>
-        </li>
-
-        <ul class="children collapse" id="sidebar-menu-6">
             <li class="children-item {{ request()->segment(1)=='all-sub-categories' ? 'active' : '' }}" >
                 <a href="/all-sub-categories"><i class="fa fa-arrow-right"></i>All Sub Categories</a>
             </li>

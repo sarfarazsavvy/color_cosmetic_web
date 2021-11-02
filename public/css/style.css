@@ -12,6 +12,30 @@ body {
     font-weight: 400;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
+}
+
+/* ============= SCROLLER ================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff000061; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b300008a; 
 }
 
 /*============= PRIMARY TEXT ============*/
@@ -346,6 +370,7 @@ body {
 .sidebar-navigation-li {}
 .sidebar-navigation-link {}
 .accordion-button.collapsed {}
+
 .accordion-button {
     color: var(--red) !important;
 }
