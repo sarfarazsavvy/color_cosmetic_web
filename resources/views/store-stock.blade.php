@@ -4,13 +4,18 @@
 
 <div class="container py-5 my-5">
     <div class="row">
-        <div class="col-12">
-            <h1></h1>
+        <div class="col-12 my-5">
+            <h1 class="font-weight-bold primary-text">{{$store->name}}</h1>
+            <h4><strong>Location:</strong> {{$store->address}}</h4>
+            <span data-bs-toggle="modal" data-bs-target="#editStoreModal"
+                class="primary-text font-weight-bold">(Edit)</span>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStockToStore">
+        <div class="col-12 d-flex justify-content-between mb-3">
+            <h2 class="primary-text font-weight-bold">Stores Current Stock</h2>
+            <button type="button" class="btn bg-red text-white" data-bs-toggle="modal"
+                data-bs-target="#addStockToStore">
                 Add More Stock
             </button>
         </div>
@@ -36,7 +41,7 @@
                     <?php $i =0; ?>
                     @foreach( $storeStocks as $storeStock )
                     <?php $i++ ?>
-                        <tr>
+                    <tr>
                         <th scope="row">{{$i}}</th>
                         <td>{{isset($storeStock->product) ?  $storeStock->product->name : '-'}}</td>
                         <td>{{isset($storeStock->store) ?  $storeStock->store->name : '-'}}</td>
@@ -61,8 +66,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <form action="/update-store-stock" method="post">
-                                            @csrf
-                                            <input type="hidden" value="{{$storeStock['id']}}" name="id">
+                                                @csrf
+                                                <input type="hidden" value="{{$storeStock['id']}}" name="id">
                                                 <div class="form-group">
                                                     <label for="price">Price</label>
                                                     <input name="price" placeholder="e.g Rs. 1000" required
@@ -111,7 +116,7 @@
                                 <label for="">Select Products</label>
                                 <select required name="product_id" class="form-control ba-girl-select">
                                     @foreach( $products as $product)
-                                        <option value="{{$product->id}}">{{$product->name}}</option>
+                                    <option value="{{$product->id}}">{{$product->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -133,6 +138,51 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editStoreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="p-3" action="/update-store" method="post" id="add_product_form">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$store->id}}">
+                    <!-- {{ csrf_field() }} -->
+                    <div class="form- mb-3">
+                        <h2 class="primary-text font-weight-bold">Details of new store</h2>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold mb-1" for="name">Store Name</label>
+                        <input placeholder="Lorem Mart" required  value="{{$store->name}}" type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold mb-1" for="address" class="">Address</label>
+                        <input placeholder="Street, City, landmark" value="{{$store->address}}"  required name="address" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold mb-1" for="city">City</label>
+                        <select name="city" class="form-control">
+                            @foreach($cities as $city)
+                            <option value="{{$city->id}}">{{$city->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold mb-1" for="contact">Store Contact</label>
+                        <input placeholder="123455667" required  value="{{$store->contact}}" type="number" name="contact" class="form-control">
+                    </div>
+                    <div class="form-group mb-3 text-center">
+                        <button required type="submit" name="submit" class="btn bg-red text-white">Update Store</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @endsection
 

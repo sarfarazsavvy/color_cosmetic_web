@@ -54,15 +54,15 @@
             <li class="children-item {{ request()->segment(1)=='all-products' ? 'active' : '' }}">
                 <a class="" href="/all-products"><i class="fa fa-circle-thin me-2"></i>Products</a>
             </li>
-            <li class="children-item {{ request()->segment(1)=='add-products-form' ? ' active' : '' }}">
+            <!-- <li class="children-item {{ request()->segment(1)=='add-products-form' ? ' active' : '' }}">
                 <a class="" href="/add-products-form"><i class="fa fa-circle-thin me-2"></i>Add Products</a>
-            </li>
+            </li> -->
             <li class="children-item {{ request()->segment(1)=='all-stores' ? 'active' : '' }}" href="/all-stores">
-                <a class="" href="/all-stores"><i class="fa fa-circle-thin me-2"></i>All Stores</a>
+                <a class="" href="/all-stores"><i class="fa fa-circle-thin me-2"></i>Stores</a>
             </li>
-            <li class="children-item {{ request()->segment(1)=='add-store-form' ? 'active' : '' }}">
+            <!-- <li class="children-item {{ request()->segment(1)=='add-store-form' ? 'active' : '' }}">
                 <a class="" href="/add-store-form"><i class="fa fa-circle-thin me-2"></i>Create Store</a>
-            </li>
+            </li> -->
             <li class="children-item {{ request()->segment(1)=='all-cities' ? 'active' : '' }}">
                 <a href="{{route('city.index')}}"><i class="fa fa-circle-thin me-2"></i>All Cities</a>
             </li>

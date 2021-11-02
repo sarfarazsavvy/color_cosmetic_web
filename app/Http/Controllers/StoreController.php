@@ -46,8 +46,23 @@ class StoreController extends Controller
     public function storeStock($id) {  
         $products = Product::all();
         $stores = Store::all();
+        $cities = City::all();
+        $store = Store::where('id', $id)->first();
         $storeStocks = StoreStock::where('store_id',$id)->get();
-        return view('store-stock', compact('products', 'stores', 'storeStocks', 'id'));
+        return view('store-stock', compact('products', 'stores', 'storeStocks', 'id', 'store', 'cities'));
+    }
+
+    public function updateStore(Request $req) {
+        $id = $req->id;
+        $name = $req->name;
+        $address = $req->address;
+        $city = $req->city;
+        $contact = $req->contact;
+
+        $store = new Store();
+        $store->where('id', $id)->update(['name' => $name, 'address' => $address, 'city_id' => $city, 'contact' => $contact]);
+
+        return redirect()->back()->with('success','Store Updated!');
     }
 
     public function updateStoreStock(Request $req) {
