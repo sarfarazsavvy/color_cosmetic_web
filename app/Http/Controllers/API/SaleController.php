@@ -150,7 +150,11 @@ class SaleController extends BaseController
                 return $row->sum('quantity');
             });
 
-            $reformated_data = [ isset($_dataCollection['Eyes']) ? $_dataCollection['Eyes'] : 0, isset($_dataCollection['Lips']) ? isset($_dataCollection['Lips']) : 0, isset($_dataCollection['Face']) ? $_dataCollection['Face'] : 0, isset($_dataCollection['Nails']) ? isset($_dataCollection['Nails']) : 0,  $total ];
+            $reformated_data = [ isset($_dataCollection['Eyes']) ? $_dataCollection['Eyes'] : 0, 
+                                 isset($_dataCollection['Lips']) ? $_dataCollection['Lips'] : 0, 
+                                 isset($_dataCollection['Face']) ? $_dataCollection['Face'] : 0, 
+                                 isset($_dataCollection['Nails']) ? $_dataCollection['Nails'] : 0,  
+                                 $total ];
             
 
             // return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
