@@ -22,12 +22,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
-// Route::get('/index', function() {
-//     return view("index");
-// });
-
-
-// products
 Route::get('/all-products', 'ProductController@allProducts')->name('product.index');
 Route::get('/add-products-form', 'ProductController@addProductForm');
 Route::post('/add-products', 'ProductController@addProduct')->name('add.product');
@@ -66,6 +60,8 @@ Route::post('/deactivate-ba', 'BeautyAdvisorController@deactivate_ba');
 Route::get('/pending/sales', 'ProductController@pending_sales')->name('pending_sales');
 Route::get('/approved/sales', 'ProductController@approved_sales')->name('sales.pending');
 
+Route::get('/ba/sales/reports', 'ProductController@ba_sales_reports')->name('ba.sales.reports');
+Route::get('/ba/sales/view/{id}', 'ProductController@ba_sales_view')->name('ba.sales.view');
 
 
 

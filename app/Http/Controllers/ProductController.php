@@ -8,6 +8,7 @@ use App\Category;
 use App\SubCategory;
 use App\Sale;
 use App\StoreStock;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -112,7 +113,24 @@ class ProductController extends Controller
         $store_stock->quantity = $store_stock->quantity - $qty;
         $store_stock->save();
         return response()->json(["success" => true, "id" => $id,"qty" => $qty]);
-
     }
+
+
+
+    public function ba_sales_reports(){
+        $ba_user =User::where('role','ba')->get();
+        return view("ba_sales_reports", compact('ba_user'));
+    }
+
+    public function ba_sales_view($id){
+
+        $user =User::where('id',$id)->first();
+        $daily = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('sale_date', '>=',Carbon::today())->get();
+        $weekly = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('created_at', '>=', Carbon::today()->subDays(7))->get();
+        $monthly = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('created_at', '>=', Carbon::today()->subDays(30))->get();
+
+        return view("ba_sales_reports_view",compact('user','daily','weekly','monthly'));
+    }
+
 
 }

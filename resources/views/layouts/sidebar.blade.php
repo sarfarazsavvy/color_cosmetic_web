@@ -41,6 +41,9 @@
             <li class="children-item {{ request()->segment(1)=='sales' ? 'active' : '' }}">
                 <a class="" href="{{route('pending_sales')}}"><i class="fa fa-circle-thin me-2"></i>Pending Sales</a>
             </li>
+            <li class="children-item {{ request()->segment(1)=='sales' ? 'active' : '' }}">
+                <a class="" href="{{route('ba.sales.reports')}}"><i class="fa fa-circle-thin me-2"></i>BA Sales Reports</a>
+            </li>
         </ul>
 
         <li class="nav-item">
