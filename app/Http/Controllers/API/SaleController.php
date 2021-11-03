@@ -104,7 +104,10 @@ class SaleController extends BaseController
                 $totalSale += $sale->price;
             }
 
-            return $this->sendResponse(['sales_in_unit'=> $totalUnit, 'sales_in_rupees'=>$totalSale] ,'Monthly CEO Data recieved succesfully!');
+            $reformated_data = [ [$totalSale], [$totalUnit] ];
+            return $this->sendResponse($reformated_data ,'Monthly CEO Data recieved succesfully!');
+
+            // return $this->sendResponse(['sales_in_unit'=> $totalUnit, 'sales_in_rupees'=>$totalSale] ,'Monthly CEO Data recieved succesfully!');
         }
 
         // ============= OVERALL CATEGORY WISE SALE =================
