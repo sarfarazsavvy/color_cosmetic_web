@@ -49,6 +49,15 @@ class BeautyAdvisorController extends Controller
 
     }
 
+    public function deactivateBa(Request $req) {
+
+        $ba = User::where('id', $req->id)->where('role', 'ba')->first();
+        $ba->active = $req->status;
+
+        $ba->save();
+        return redirect()->route('beauty-advisors');
+    }
+
     public function AssignStoreToBeautyAdvisor(Request $req) {
         
         $userId = $req->user_id;
