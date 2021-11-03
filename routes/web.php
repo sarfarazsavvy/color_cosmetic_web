@@ -54,7 +54,7 @@ Route::get('/beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisorForm'
 Route::post('/create-beauty-advisors', 'BeautyAdvisorController@createBeautyAdvisor');
 Route::get('/assign-store-to-beauty-advisor-form', 'BeautyAdvisorController@AssignStoreToBeautyAdvisorForm');
 Route::post('/assign-store-to-beauty-advisor', 'BeautyAdvisorController@AssignStoreToBeautyAdvisor');
-Route::post('/deactivate-ba', 'BeautyAdvisorController@deactivate_ba');
+Route::post('/deactivate-ba', 'BeautyAdvisorController@deactivateBa');
 
 //Sales Pending
 Route::get('/pending/sales', 'ProductController@pending_sales')->name('pending_sales');

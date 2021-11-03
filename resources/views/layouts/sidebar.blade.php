@@ -32,7 +32,7 @@
         
         <ul class="children collapse" id="sidebar-sales">
             <li class="children-item {{ request()->segment(1)=='ba-sales' ? 'active' : '' }}">
-                <a class="" href="/all-products"><i class="fa fa-circle-thin me-2"></i>BA SALES</a>
+                <a class="" href="/all-products"><i class="fa fa-circle-thin me-2"></i>BA Sales</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='sales' ? 'active' : '' }}">
                 <a class="" href="{{route('pending_sales')}}"><i class="fa fa-circle-thin me-2"></i>Pending Sales</a>

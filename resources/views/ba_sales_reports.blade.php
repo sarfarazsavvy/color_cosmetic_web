@@ -6,7 +6,7 @@
         <div class="container py-5 my-5">
             <div class="row">
                 <div class="col-12">
-                    <h1>BA Sales Reports Summary</h1>
+                    <h1 class="font-weight-bold my-5 primary-text">BA Sales Reports Summary</h1>
                 </div>
                 <div class="col-12">
                     <table id="allBaGirls" class="table">
