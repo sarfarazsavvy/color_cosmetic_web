@@ -39,8 +39,8 @@
                                 <th scope="row">{{$i}}</th>
                                 <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
                                 <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
-                                <td>{{isset($ps->product) ? $ps->product[0]['name'] : '-'}}</td>
-                                <td>{{isset($ps->store_stock) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
+                                <td>{{isset($ps->product[0]) ? $ps->product[0]['name'] : '-'}}</td>
+                                <td>{{isset($ps->store_stock[0]) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
                                     <td>{{$ps->quantity}}</td>
                                     <td>{{$ps->created_at}}</td>
                                 <td>
@@ -52,10 +52,10 @@
                                     <th scope="row">{{$i}}</th>
                                     <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
                                     <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
-                                    <td>{{isset($ps->product) ? $ps->product[0]['name'] : '-'}}</td>
-                                    <td>{{isset($ps->store_stock) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
+                                    <td>{{isset($ps->product[0]) ? $ps->product[0]['name'] : '-'}}</td>
+                                    <td>{{isset($ps->store_stock[0]) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
                                     <td>{{$ps->quantity}}</td>
-                                    <td>{{$ps->created_at}}</td>
+                                    <td>{{$ps->sale_date}}</td>
                                     <td><input data-product_id="{{$ps->product_id}}" data-qty="{{$ps->quantity}}"  class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Approved" data-off="Pending" {{ $ps->status ? 'checked' : '' }} /></td>
                                 </tr>
                             @endif
