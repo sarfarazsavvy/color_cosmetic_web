@@ -8,7 +8,7 @@
 
 <body>
 
-<div class="row">
+<div class="row" style="margin-top: 6em;">
     <!-- SIDEBAR -->
 @include('layouts.sidebar')
 <!-- SIDEBAR ENDS -->

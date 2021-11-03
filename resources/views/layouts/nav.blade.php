@@ -1,4 +1,22 @@
-<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+<nav class="navbar px-3 navbar-expand-lg bg-dark fixed-top d-flex justify-content-between align-items-center">
+    <div class="nav-logo">
+        <p class="p-0 m-0 text-white" style="font-size: 22px;"><span class="primary-text me-2">Revlon</span>Color Cosmetic</p>
+    </div>
+    <div class="greatings">
+        <p class="p-0 m-0 text-white " style="font-size: 22px;"><span id="greatingText" class="me-1 text-capitalize">Good Morning,</span><span
+                class="font-weight-bold primary-text text-capitalize">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span>
+        </p>
+    </div>
+    <div class="log-out">
+        <form action="{{route('logout')}}" method="post"> @csrf
+            <button class="btn text-white" style="font-size: 22px;" type="submit" href="" onClick=""><em
+                    class="fa fa-power-off">&nbsp;</em> Logout</button>
+        </form>
+    </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-expand-lg bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand primary-text" href="#">Revlon</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,4 +46,4 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->

@@ -1,9 +1,5 @@
 <div id="sidebar-collapse" class="col-md-4 col-lg-3 sidebar">
-    <div class="profile-sidebar">
-        <h3 class="text-capitalize">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
-        </h3>
-    </div>
-    <div class="divider"></div>
+
 
     <ul class="nav nav-pills flex-column mb-auto menu p-0">
 
@@ -83,14 +79,14 @@
             </li>
         </ul>
 
-        <ul class="children">
+        <!-- <ul class="children">
             <li class="children-item">
                 <form action="{{route('logout')}}" method="post"> @csrf
                     <button class="btn sidebar-logout-btn" type="submit" href="" onClick=""><em
                         class="fa fa-power-off">&nbsp;</em> Logout</button>
                 </form>
             </li>
-        </ul>
+        </ul> -->
         
         
     </ul>

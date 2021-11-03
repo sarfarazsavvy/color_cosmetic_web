@@ -107,6 +107,8 @@ class SaleController extends BaseController
             return $this->sendResponse(['sales_in_unit'=> $totalUnit, 'sales_in_rupees'=>$totalSale] ,'Monthly CEO Data recieved succesfully!');
         }
 
+        // ============= OVERALL CATEGORY WISE SALE =================
+
         public function overal_category_wise_sale() {
 
             $sales = Sale::with('product','product.category')->get();
@@ -121,11 +123,23 @@ class SaleController extends BaseController
                         'sale_date'=>$sale->sale_date,
                         'price'=>$sale->price,
                         'quantity'=>$sale->quantity,
-                        'category'=>$sale['product'][0]['category']['name'],
+                        'category'=> isset($sale['product'][0]['category']['name']) ? $sale['product'][0]['category']['name'] : "-" ,
                     ]);
 
                 }
             }
+
+            
+            /* [
+                [10,12,15,11,48],
+                [8,13,13,8,42],
+                [18,25,28,19,90],
+                [30508,63190,101973,16210,211881]
+            ]
+
+            */
+
+            // tableTitle ['eyes', 'lips', 'face', 'nails', "total"];
 
             $dataCollection = collect($data);
 
@@ -133,11 +147,17 @@ class SaleController extends BaseController
                 return $row->sum('quantity');
             });
 
-            return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
+            $reformated_data = [ isset($_dataCollection['Eyes']) ? $_dataCollection['Eyes'] : 0, isset($_dataCollection['Lips']) ? isset($_dataCollection['Lips']) : 0, isset($_dataCollection['Face']) ? $_dataCollection['Face'] : 0, isset($_dataCollection['Nails']) ? isset($_dataCollection['Nails']) : 0,  $total ];
+            
+
+            // return $this->sendResponse(['all_sales' =>$_dataCollection,'totals' =>$total] ,'CEO! Category Wise Data Recieved!');
+            return $this->sendResponse($reformated_data ,'CEO! Category Wise Data Recieved!');
+
         }
 
+        // ============= REGION WISE SALE =============
 
-        public function region_wise_sale(){
+        public function region_wise_sale() {
 
             $sindhSales = Sale::with(['store', 'product'])
                 ->whereHas('store',function($c){
