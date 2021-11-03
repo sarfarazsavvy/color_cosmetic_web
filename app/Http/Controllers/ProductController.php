@@ -125,9 +125,9 @@ class ProductController extends Controller
     public function ba_sales_view($id){
 
         $user =User::where('id',$id)->first();
-        $daily = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('sale_date', '>=',Carbon::today())->get();
-        $weekly = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('sale_date', '>=', Carbon::today()->subDays(7))->get();
-        $monthly = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('sale_date', '>=', Carbon::today()->subDays(30))->get();
+        $daily = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('status',1)->where('sale_date', '>=',Carbon::today())->get();
+        $weekly = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('status',1)->where('sale_date', '>=', Carbon::today()->subDays(7))->get();
+        $monthly = Sale::with('store','store_stock', 'product', 'product.category')->where('user_id',$id)->where('status',1)->where('sale_date', '>=', Carbon::today()->subDays(30))->get();
 
         return view("ba_sales_reports_view",compact('user','daily','weekly','monthly'));
     }
