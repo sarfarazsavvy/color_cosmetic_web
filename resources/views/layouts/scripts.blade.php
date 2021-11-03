@@ -25,11 +25,27 @@
           });
       };
 
-		// Sidebar
+	//   ======== GREATINGS ============
 
+
+	  	var now = new Date();
+		var hrs = now.getHours();
+		var msg = "";
+
+		if (hrs >  0) msg = "Morning' Sunshine!,"; // REALLY early
+		if (hrs >  6) msg = "Good morning,";      // After 6am
+		if (hrs > 12) msg = "Good afternoon,";    // After 12pm
+		if (hrs > 17) msg = "Good evening,";      // After 5pm
+
+		const textBox = document.getElementById("greatingText");
+		textBox.innerText = msg;
+
+
+		// Sidebar
 	  	// var url = window.location.href;
 		// var id = url.substring(url.lastIndexOf('/') + 1);
 		// alert(id);
+		 
 	</script>
 	@stack('plugin-scripts')
 	@stack('custom-scripts')
