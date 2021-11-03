@@ -100,6 +100,7 @@
                                 <h5>Monthly Sales Reports</h5>
                                 <thead>
                                 <tr>
+
                                     <th>ID</th>
                                     <th>Date</th>
                                     <th>Product</th>
