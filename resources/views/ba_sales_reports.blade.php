@@ -25,15 +25,12 @@
                                 <td>{{ $ba_rep->name }}</td>
                                 <td>{{ $ba_rep->email }}</td>
                                 <td>
-                                    <a href="{{route('ba.sales.view',$ba_rep->id)}}" class="btn btn-link border rounded" data-toggle="tooltip" data-placement="bottom" title="Edit Sale">
-                                        <i class="fa fa-edit"></i> View
+                                    <a href="{{route('ba.sales.view',$ba_rep->id)}}" class="btn primary-text" data-toggle="tooltip" data-placement="bottom" title="Edit Sale">
+                                        <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
                             </tr>
                         @endforeach
-
-
-
                         </tbody>
                     </table>
                 </div>

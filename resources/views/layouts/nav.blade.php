@@ -8,9 +8,11 @@
         </p>
     </div>
     <div class="log-out">
-        <form action="{{route('logout')}}" method="post"> @csrf
-            <button class="btn text-white" style="font-size: 22px;" type="submit" href="" onClick=""><em
-                    class="fa fa-power-off">&nbsp;</em> Logout</button>
+        <form  class="d-flex flex-row" action="{{route('logout')}}" method="post"> @csrf
+            <div class="d-flex justify-content-center align-items-center" style="width: 22px;">
+              <img class="w-100" src="img/icons/logout.png" alt="">
+            </div>
+            <button class="btn text-white" style="font-size: 22px;" type="submit" href="" onClick="">Logout</button>
         </form>
     </div>
 </nav>

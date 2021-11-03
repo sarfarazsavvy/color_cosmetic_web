@@ -5,7 +5,7 @@
 <div class="container py-5 my-5">
     <div class="row">
         <div class="col-12">
-            <h1>Assign Store to Beauty Advisor</h1>
+            <h1 class="font-weight-bold primary-text my-5">Assign Store to Beauty Advisor</h1>
         </div>
     </div>
     <div class="row">
