@@ -14,6 +14,14 @@
 	<script src="{{ asset('js/plugins/select2/select2.js') }}" ></script>
 
 	<script src="js/custom.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		} );
+	</script>
 	<script>
 		window.onload = function () {
           var chart1 = document.getElementById("line-chart").getContext("2d");

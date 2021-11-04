@@ -9,8 +9,8 @@
                     <h1 class="font-weight-bold my-5 primary-text">BA Sales Reports Summary</h1>
                 </div>
                 <div class="col-12">
-                    <table id="allBaGirls" class="table">
-                        <thead class="table-dark">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead class="table-dark">
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>

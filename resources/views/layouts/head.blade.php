@@ -5,7 +5,7 @@
 	<link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
-
+	<link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 	<!-- Plugins -->
 	<link rel="stylesheet" href=" {{ asset('css/plugins/select2/select2.css') }} ">
 	@stack('plugin-styles')

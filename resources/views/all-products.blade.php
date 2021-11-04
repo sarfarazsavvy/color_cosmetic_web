@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('main')
-
 <div class="container py-5 my-5">
     <div class="row">
         <div class="col-12">
@@ -18,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <table class="table">
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
