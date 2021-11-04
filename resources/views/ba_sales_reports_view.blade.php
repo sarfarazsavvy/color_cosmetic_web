@@ -52,6 +52,7 @@
             <div class="tab-content" id="myTabContent">
                 <!-- Daily Report -->
                 <div class="tab-pane fade show active" id="dailyReport" role="tabpanel" aria-labelledby="home-tab">
+
                     <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
                         <h5 class="font-weight-bold primary-text mb-3 text-uppercase">Daily Sales Reports Summary</h5>
                         <thead>

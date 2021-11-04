@@ -9,8 +9,7 @@
         </div>
     </div>
     <div class="col-12">
-    
-            <table class="table">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="table-dark">
                     <th>ID</th>
                     <th>Name</th>

@@ -16,8 +16,8 @@
             </div>
             <div class="row py-5">
                 <div class="col-12">
-                    <table class="table">
-                        <thead class="thead-dark">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
@@ -71,7 +71,7 @@
 @endsection
 
 @push('plugin-scripts')
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    {{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--}}
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endpush
 

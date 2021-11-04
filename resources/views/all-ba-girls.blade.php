@@ -9,7 +9,7 @@
                 <h1 class="my-5 font-weight-bold primary-text">All beauty Advisors</h1>
             </div>
             <div class="col-12">
-                <table id="allBaGirls" class="table">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead class="table-dark">
                         <th>ID</th>
                         <th>Name</th>
