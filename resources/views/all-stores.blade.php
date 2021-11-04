@@ -12,7 +12,7 @@
                 <!-- Button trigger modal -->
             <button type="button" class="btn bg-red text-white" data-bs-toggle="modal"
                 data-bs-target="#addMoreProducts">
-                Add More Products
+                Add New Store
             </button>
             </div>
         </div>
