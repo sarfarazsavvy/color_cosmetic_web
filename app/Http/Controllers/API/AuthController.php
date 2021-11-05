@@ -46,8 +46,7 @@ class AuthController extends BaseController
             return $this->sendError('Email is already registered with social account!', []);
         }
         try {
-            $response = Password::sendResetLink(["email" => $email], function (Message $message) {
-                $message->subject($this->getEmailSubject());
+            $response = Password::sendResetLink(["email" => $email],function () {
             });
             switch ($response) {
                 case Password::RESET_LINK_SENT:
@@ -56,7 +55,6 @@ class AuthController extends BaseController
                     return $this->sendError(trans($response), []);
             }
         } catch (\Swift_TransportException $ex) {
-
             return $this->sendResponse($ex, 'password reset request sent.');
         }
     }
