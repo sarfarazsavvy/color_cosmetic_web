@@ -57,6 +57,14 @@ class BeautyAdvisorController extends Controller
         
          $password =PasswordResets::get();
          return view('reset_password', compact('password'));
+     }
+
+     public function password_update(Request $req){
+         $password =PasswordResets::get();
+         $update_password =User::where('email',$req->email)->first();
+         $update_password->password = Hash::make($req->password);
+         $update_password->save();
+         return view('reset_password',compact('password'));
 
      }
 

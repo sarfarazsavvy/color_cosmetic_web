@@ -24,6 +24,8 @@ Route::group(['middleware'=>'auth'],function(){
 
 // changePasswordRequestList
 Route::get('/forgot/password', 'BeautyAdvisorController@changePasswordRequestList')->name('forgot.password');
+Route::post('/password_update/{email}', 'BeautyAdvisorController@password_update')->name('password.update');
+
 
 Route::get('/all-products', 'ProductController@allProducts')->name('product.index');
 Route::get('/add-products-form', 'ProductController@addProductForm');

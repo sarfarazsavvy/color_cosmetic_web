@@ -37,7 +37,8 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="{{ route('password.update', $c->email) }}">
+                                        <form method="POST" action="{{ route('password.update',$c->email) }}">
+                                            @csrf
                                             <input type="hidden" value="{{$c->email}}">
                                             <div class="form-group">
                                                 <label for="">Enter New Password</label>
