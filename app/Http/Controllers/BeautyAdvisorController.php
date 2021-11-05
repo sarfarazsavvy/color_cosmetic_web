@@ -8,6 +8,7 @@ use App\User;
 use DB;
 use App\UserStore;
 use App\Appointment;
+use App\PasswordReset;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -49,15 +50,11 @@ class BeautyAdvisorController extends Controller
         return view('beauty-advisor-store', compact('baGirls', 'stores'));
 
     }
-    // public function changePasswordRequestList() {
-        
-    //     $status = Password::sendResetLink(
-    //         $request->only('email');
-    //     );
-    //     // $password =User::get();
-    //      dd($status);
 
-    // }
+    public function changePasswordRequestList() {
+        $requests = new PasswordResets;
+        dd($requests);
+    }
 
     public function deactivateBa(Request $req) {
 
