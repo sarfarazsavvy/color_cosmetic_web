@@ -61,7 +61,7 @@ Route::post('/deactivate-ba', 'BeautyAdvisorController@deactivateBa');
 
 //Sales Pending
 Route::get('/pending/sales', 'ProductController@pending_sales')->name('pending_sales');
-Route::get('/approved/sales', 'ProductController@approved_sales')->name('sales.pending');
+Route::post('/approved/sales', 'ProductController@approved_sales')->name('sales.pending');
 
 Route::get('/ba/sales/reports', 'ProductController@ba_sales_reports')->name('ba.sales.reports');
 Route::get('/ba/sales/view/{id}', 'ProductController@ba_sales_view')->name('ba.sales.view');
