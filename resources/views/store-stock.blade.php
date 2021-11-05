@@ -28,6 +28,8 @@
                         <th scope="col">#ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Store</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Sub-Category</th>
                         <th scope="col">Price</th>
                         <th scope="col">Discount</th>
                         <th scope="col">Quantity</th>
@@ -45,6 +47,8 @@
                         <th scope="row">{{$i}}</th>
                         <td>{{isset($storeStock->product) ?  $storeStock->product->name : '-'}}</td>
                         <td>{{isset($storeStock->store) ?  $storeStock->store->name : '-'}}</td>
+                        <td>{{isset($storeStock->product->category->name) ?  $storeStock->product->category->name : '-'}}</td>
+                        <td>{{isset($storeStock->product->sub_category->name) ?  $storeStock->product->sub_category->name : '-'}}</td>
                         <td>{{$storeStock->price}}</td>
                         <td>{{$storeStock->discount}}</td>
                         <td>{{$storeStock->quantity}}</td>
