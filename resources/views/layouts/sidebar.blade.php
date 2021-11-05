@@ -19,8 +19,9 @@
                 <a class="" href="/beauty-advisors"><i class="fa fa-circle-thin me-2"></i>Add Beauty Advisor</a>
             </li>
             <li class="children-item {{ request()->segment(1)=='ba-change-password' ? 'active' : '' }}">
-                <a class="" href="/ba-change-password"><i class="fa fa-circle-thin me-2"></i>BA Change Password</a>
+                <a class="" href="{{route('forgot.password')}}"><i class="fa fa-circle-thin me-2"></i>BA Change Password</a>
             </li>
+            
             <li class="children-item {{ request()->segment(1)=='assign-store-to-beauty-advisor-form' ? 'active' : '' }}">
                 <a class="" href="/assign-store-to-beauty-advisor-form"><i class="fa fa-circle-thin me-2"></i>Assign Store to BA</a>
             </li>

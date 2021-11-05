@@ -22,6 +22,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
+// changePasswordRequestList
+Route::get('/forgot/password', 'BeautyAdvisorController@changePasswordRequestList')->name('forgot.password');
+
 Route::get('/all-products', 'ProductController@allProducts')->name('product.index');
 Route::get('/add-products-form', 'ProductController@addProductForm');
 Route::post('/add-products', 'ProductController@addProduct')->name('add.product');
