@@ -23,7 +23,35 @@
                         <td>{{ $i }}</td>
                         <td>{{ $c->email}}</td>
                         <td>
-                            <a href="{{route('password.update',$c->email)}}"><i class="fa fa-edit"></i></a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#baPasswordChangeModal{{$i}}">
+                                Reset Password
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="baPasswordChangeModal{{$i}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{$c->email}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="{{ route('password.update', $c->email) }}">
+                                            <input type="hidden" value="{{$c->email}}">
+                                            <div class="form-group">
+                                                <label for="">Enter New Password</label>
+                                                <input type="text" name="password" class="form-control">
+                                            </div>
+                                            <div class="form-group text-center mt-3">
+                                                <button class="btn bg-red primary-text text-white" type="submit">Change Password</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
