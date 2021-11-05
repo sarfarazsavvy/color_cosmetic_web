@@ -16,7 +16,7 @@
                     <th>Parent Category</th>
                     <th>Action</th>
                 </thead>
-               
+
                 <tbody>
                     @foreach( $subCategories as $subCategory )
                     <tr>

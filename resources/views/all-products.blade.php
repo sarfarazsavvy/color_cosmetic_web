@@ -19,13 +19,13 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">SKU</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Sub Category</th>
-                            <th scope="col">Action</th>
+                            <th>ID</th>
+                            <th>SKU</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Sub Category</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,7 +43,6 @@
                                 <a href="{{route('remove.product',$product->id)}}"><i style="color: red;"
                                         class="fa fa-trash"></i></a>
                             </td>
-
                         </tr>
                         @endforeach
                     </tbody>
