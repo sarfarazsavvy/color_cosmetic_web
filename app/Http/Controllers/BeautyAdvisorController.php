@@ -8,13 +8,9 @@ use App\User;
 use DB;
 use App\UserStore;
 use App\Appointment;
-<<<<<<< HEAD
-use App\PasswordReset;
-=======
 use App\PasswordResets;
 
 
->>>>>>> db55f8d694c0bb840898204e3ddd6ef686880edd
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
