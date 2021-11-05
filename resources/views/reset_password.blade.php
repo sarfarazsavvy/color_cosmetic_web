@@ -12,6 +12,7 @@
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="table-dark">
                 <th>ID</th>
+                <th>Name</th>
                 <th>email</th>
                 <th>Action</th>
 
@@ -21,6 +22,7 @@
                     <?php $i++; ?>
                     <tr>
                         <td>{{ $i }}</td>
+                        <td>{{isset($c->user) ?$c->user->name : '-'}}</td>
                         <td>{{ $c->email}}</td>
                         <td>
                             <!-- Button trigger modal -->

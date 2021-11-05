@@ -55,7 +55,7 @@ class BeautyAdvisorController extends Controller
     }
      public function changePasswordRequestList() {
         
-         $password =PasswordResets::get();
+         $password =PasswordResets::with('user')->get();
          return view('reset_password', compact('password'));
      }
 
