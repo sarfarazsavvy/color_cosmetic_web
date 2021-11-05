@@ -9,15 +9,15 @@
 @section('main')
 
 
-    <div class="container my-5">
+    <div class="container py-5 my-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="my-5 font-weight-bold primary-text">All Pending Sales</h1>
+                <h1>All Pending Sales</h1>
             </div>
             <div class="row py-5">
                 <div class="col-12">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
-                    <thead class="thead-dark">
+                    <table class="table">
+                        <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
@@ -36,26 +36,26 @@
                             <?php $i++;?>
                             @if($ps->quantity > $ps->store_stock[0]['quantity'])
                                 <tr style="border: 1px solid red; border-radius: 12px; color: red">
-                                <th scope="row">{{$i}}</th>
-                                <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
-                                <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
-                                <td>{{isset($ps->product[0]) ? $ps->product[0]['name'] : '-'}}</td>
-                                <td>{{isset($ps->store_stock[0]) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
+                                    <th scope="row">{{$i}}</th>
+                                    <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
+                                    <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
+                                    <td>{{isset($ps->product) ? $ps->product[0]['name'] : '-'}}</td>
+                                    <td>{{isset($ps->store_stock) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
                                     <td>{{$ps->quantity}}</td>
                                     <td>{{$ps->created_at}}</td>
-                                <td>
-                                    <input data-product_id="{{$ps->product_id}}" data-qty="{{$ps->quantity}}"  class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Approved" data-off="Pending" {{ $ps->status ? 'checked' : '' }} />
-                                </td>
-                             </tr>
-                             @else
+                                    <td>
+                                        <input data-product_id="{{$ps->product_id}}" data-qty="{{$ps->quantity}}"  class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Approved" data-off="Pending" {{ $ps->status ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                            @else
                                 <tr>
                                     <th scope="row">{{$i}}</th>
                                     <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
                                     <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
-                                    <td>{{isset($ps->product[0]) ? $ps->product[0]['name'] : '-'}}</td>
-                                    <td>{{isset($ps->store_stock[0]) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
+                                    <td>{{isset($ps->product) ? $ps->product[0]['name'] : '-'}}</td>
+                                    <td>{{isset($ps->store_stock) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
                                     <td>{{$ps->quantity}}</td>
-                                    <td>{{$ps->sale_date}}</td>
+                                    <td>{{$ps->created_at}}</td>
                                     <td><input data-product_id="{{$ps->product_id}}" data-qty="{{$ps->quantity}}"  class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Approved" data-off="Pending" {{ $ps->status ? 'checked' : '' }} /></td>
                                 </tr>
                             @endif
@@ -82,9 +82,8 @@
                 var status = $(this).prop('checked') == true ? 1 : 0;
                 var product_id = $(this).data('product_id');
                 var qty = $(this).data('qty');
-
                 $.ajax({
-                    type: "GET",
+                    type: "get",
                     dataType: "json",
                     url: '{{ route('sales.pending') }}',
                     data: {'status': status, 'product_id': product_id,'qty': qty},
@@ -95,5 +94,4 @@
             })
         });
     </script>
-
 @endpush

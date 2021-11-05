@@ -96,6 +96,7 @@ class ProductController extends Controller
         return view("all_pending_sales", compact('pending_sales'));
     }
 
+
     public function approved_sales(Request $request){
 
         $id = $request->post('product_id');
