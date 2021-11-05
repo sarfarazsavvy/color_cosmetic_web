@@ -2,10 +2,10 @@
 
 @section('main')
 
-<div class="container py-5 my-5">
+<div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h1>Stores Managment</h1>
+            <h1 class="font-weight-bold my-5 primary-text">Stores Management</h1>
         </div>
         <div class="row mt-5">
             <div class="col-12">
@@ -21,13 +21,13 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Contact</th>
-                            <th scope="col">City</th>
-                            <th scope="">Province</th>
-                            <th scope="">Action</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                            <th>City</th>
+                            <th>Province</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

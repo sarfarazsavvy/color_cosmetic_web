@@ -3,7 +3,7 @@
 @section('main')
 
     <div class="theme-container">
-        <div class="container py-5 my-5">
+        <div class="container my-5">
             <div class="row">
                 <div class="col-12">
                     <h1 class="font-weight-bold my-5 primary-text">BA Sales Reports Summary</h1>

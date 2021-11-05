@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-
-<div class="container py-5 my-5">
+<div class="container my-5">
     <div class="row">
         <div class="col-12">
             <h1 class="primary-text my-5 font-weight-bold">Add Category</h1>
@@ -23,6 +22,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection
