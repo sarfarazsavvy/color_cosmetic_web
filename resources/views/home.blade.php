@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="jumbotron dashboard-header" style="padding: 0px !important;">
-        <h1 class=" display-4 border-bottom-5px border-color-red">Welcome, <span class="text-uppercase primary-text font-weight-bold">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span> </h1>
+        <h1 class="display-4 border-bottom-5px border-color-red" style="margin-top: 2em">Welcome, <span class="text-uppercase primary-text font-weight-bold">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span> </h1>
     </div>
 
     <div class="row">
