@@ -90,6 +90,7 @@ body {
     box-shadow: none;
     background: #fff;
     top: 55px;
+    padding-bottom: 20em;
   }
   
   .sidebar ul {
@@ -401,16 +402,19 @@ body {
 /* ========== DASHBOARD ========== */
 
 .dashboard-large-btn {
-    background: var(--red);
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* width: 12em; */
-    height: 5em;
-    border-radius: 7px;
-    margin-top: 1em;
+  background: var(--red);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 12em; */
+  height: 5em;
+  border-radius: 7px;
+  margin-top: 1em;
+  text-align: center;
+  font-size: 16px;
+  padding: 1em;
 }
 
 .dashboard-large-btn:hover {
