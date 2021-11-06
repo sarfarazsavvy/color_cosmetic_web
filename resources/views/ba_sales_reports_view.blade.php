@@ -17,25 +17,9 @@
                 <p><strong class="font-weight-bold primary-text">Email:
                     </strong>{{isset($user->email) ? $user->email : '-'}}</p>
                 <p>
-                    <strog class="font-weight-bold primary-text">Date: </strong>{{now()}}
+                    <strong class="font-weight-bold primary-text">Current Date: </strong>{{now()->format('d-m-Y')}}
                 </p>
         </div>
-        <!-- <div class="col-6">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#dailyReport"
-                        type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#weeklyReport"
-                        type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#monthlyReport"
-                        type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
-                </li>
-            </ul>
-        </div> -->
     </div>
     <div class="row mb-5">
         <div class="col-12">
@@ -62,7 +46,7 @@
                                 <th>Product</th>
                                 <th>Category</th>
                                 <th>Actual Price</th>
-                                <th>Qty</th>
+                                <th>Unit</th>
                                 <th>Amount</th>
                             </tr>
                         </thead>
@@ -72,7 +56,7 @@
                             <?php $i++ ?>
                             <tr>
                                 <td>{{$i}}</td>
-                                <td>{{$d->sale_date}}</td>
+                                <td>{{ \Carbon\Carbon::parse($d->sale_date)->format('d-m-Y')}}</td>
                                 <td>{{isset($d->product) ? $d->product[0]['name'] : '-'}}</td>
                                 <td>{{isset($d->product) ? $d->product[0]['category']['name'] : '-'}}</td>
                                 <td>{{isset($d->store_stock) ? $d->store_stock[0]['price'] : '-'}}</td>
@@ -99,7 +83,7 @@
                                 <th>Product</th>
                                 <th>Category</th>
                                 <th>Actual Price</th>
-                                <th>Qty</th>
+                                <th>Unit</th>
                                 <th>Amount</th>
                             </tr>
                         </thead>
@@ -109,7 +93,7 @@
                             <?php $i++ ?>
                             <tr>
                                 <td>{{$i}}</td>
-                                <td>{{$w->sale_date}}</td>
+                                <td>{{ \Carbon\Carbon::parse($w->sale_date)->format('d-m-Y')}}</td>
                                 <td>{{isset($w->product[0]['name']) ? $w->product[0]['name'] : '-'}}</td>
                                 <td>{{isset($w->product[0]['category']) ? $w->product[0]['category']['name'] : '-'}}
                                 </td>
@@ -139,7 +123,7 @@
                                 <th>Product</th>
                                 <th>Category</th>
                                 <th>Actual Price</th>
-                                <th>Qty</th>
+                                <th>Unit</th>
                                 <th>Amount</th>
                             </tr>
                         </thead>
@@ -149,7 +133,8 @@
                             <?php $i++ ?>
                             <tr>
                                 <td>{{$i}}</td>
-                                <td>{{$m->sale_date}}</td>
+                                <td>{{ \Carbon\Carbon::parse($m->sale_date)->format('d-m-Y') }}
+                                </td>
                                 <td>{{isset($m->product[0]['name']) ? $m->product[0]['name'] : '-'}}</td>
                                 <td>{{isset($m->product[0]['category']) ? $m->product[0]['category']['name'] : '-'}}
                                 </td>
@@ -157,7 +142,6 @@
                                 <td>{{$m->quantity}}</td>
                                 <td>{{$m->price}}</td>
                             </tr>
-
                             @endforeach
                             <tr style="font-weight: bold;color:black">
                                 <td colspan="5" class="primary-text">Total Amount</td>
