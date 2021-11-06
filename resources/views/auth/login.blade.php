@@ -16,6 +16,11 @@
             <h1 class="text-center">Welcome</h1>
             <h4 class="text-center">Revlon Color Cosmetic</h4>
             <div class="login-form">
+                @if(session()->has('message'))
+                    <p class="alert alert-success" role="alert">
+                        {{session()->get('message')}}
+                    </p>
+                @endif
                 <form class="theme-form" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">

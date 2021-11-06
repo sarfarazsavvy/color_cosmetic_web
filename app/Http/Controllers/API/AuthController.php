@@ -21,6 +21,9 @@ class AuthController extends BaseController
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
+            if ($user->active == 0) {
+                return $this->sendError('Accouunt InActive Please Contact your Admin', []);
+            }       
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
             $success['id'] = $user->id;
             $success['active'] = $user->active;
