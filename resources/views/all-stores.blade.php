@@ -81,7 +81,7 @@
                         <label class="mb-1 font-weight-bold" for="contact">Store Contact</label>
                         <input placeholder="123455667" required type="number" name="contact" class="form-control">
                     </div>
-                    <div class="form-group mb-3 text-center">
+                    <div class="form-group mb-3 text-center mt-3">
                         <button required type="submit" name="submit" class="btn btn-primary">Add Store</button>
                     </div>
                 </form>

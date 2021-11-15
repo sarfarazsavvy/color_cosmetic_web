@@ -5,7 +5,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h1>Create Stores</h1>
+            <h1 class="primary-text font-weight-bold mt-3">Create Stores</h1>
         </div>
     </div>
     <div class="row">
@@ -36,8 +36,8 @@
                     <label for="contact">Store Contact</label>
                     <input placeholder="123455667" required type="number" name="contact" class="form-control">
                 </div>
-                <div class="form-group text-center">
-                    <button required type="submit" name="submit" class="btn btn-primary">Add Store</button>
+                <div class="form-group text-center mt-3">
+                    <button required type="submit" name="submit" class="btn bg-red text-white">Add Store</button>
                 </div>
             </form>
         </div>
