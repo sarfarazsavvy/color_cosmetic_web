@@ -11,11 +11,10 @@
         <div class="col-12">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="table-dark">
-                <th>ID</th>
-                <th>Name</th>
-                <th>email</th>
-                <th>Action</th>
-
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>Action</th>
                 <tbody>
                 <?php $i=0; ?>
                 @foreach($password as $c )
@@ -58,7 +57,6 @@
                         </td>
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
         </div>

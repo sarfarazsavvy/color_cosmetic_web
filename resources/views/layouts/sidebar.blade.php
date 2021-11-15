@@ -48,7 +48,7 @@
 
         <li class="nav-item">
             <a href="" data-bs-toggle="collapse" data-bs-target="#sidebar-inventory-managment" aria-expanded="false">
-                <span>INVENTORY MANAGMENT</span>
+                <span>INVENTORY MANAGEMENT</span>
                 <i class="fa fa-caret-down"></i>
             </a>
         </li>
