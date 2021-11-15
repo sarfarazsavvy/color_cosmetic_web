@@ -13,22 +13,22 @@
             <form action="/assign-store-to-beauty-advisor" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="">Beauty Advisor</label>
+                    <label class="font-weight-bold mb-1" for="">Beauty Advisor</label>
                     <select name="user_id" class="form-control ba-girl-select">
                         @foreach( $baGirls as $baGirl) 
                             <option value="{{$baGirl->id}}">{{$baGirl->name}}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="">Store</label>
+                <div class="form-group mt-4">
+                    <label class="font-weight-bold mb-1" for="">Store</label>
                     <select name="store_id" class="form-control ba-girl-store-select">
                         @foreach( $stores as $store) 
                             <option value="{{$store->id}}">{{$store->name}}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group text-center mt-3">
+                <div class="form-group mt-3">
                     <button required type="submit" name="submit" class="btn bg-red text-white">Assign</button>
                 </div>
             </form>

@@ -60,16 +60,16 @@
                     <div class="form-group my-5">
                         <h2 class="font-weight-bold primary-text">Details of new store</h2 class="font-weight-bold primary-text">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="mb-1 font-weight-bold" for="name">Store Name</label>
                         <input placeholder="Lorem Mart" required type="text" name="name" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="mb-1 font-weight-bold" for="address" class="">Address</label>
                         <input placeholder="Street, City, landmark" required name="address" type="text"
                             class="form-control">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="mb-1 font-weight-bold" for="city">City</label>
                         <select name="city" class="form-control">
                             @foreach($cities as $city)
@@ -77,12 +77,12 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="mb-1 font-weight-bold" for="contact">Store Contact</label>
                         <input placeholder="123455667" required type="number" name="contact" class="form-control">
                     </div>
-                    <div class="form-group mb-3 text-center mt-3">
-                        <button required type="submit" name="submit" class="btn btn-primary">Add Store</button>
+                    <div class="form-group mb-4 mt-3">
+                        <button required type="submit" name="submit" class="btn bg-red text-white">Add Store</button>
                     </div>
                 </form>
             </div>

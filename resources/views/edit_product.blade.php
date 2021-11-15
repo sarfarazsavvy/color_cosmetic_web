@@ -8,22 +8,22 @@
                 <form method="post" action="{{route('update.product',$product->id)}}">
                     @csrf
                     {{--@method('PATCH')--}}
-                    <div class="form-group">
-                        <h2 class="font-weight-bold">Edit Products</h2>
+                    <div class="form-group mt-4">
+                        <h2 class="font-weight-bold primary-text mt-5 mb-5">Edit Products</h2>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="quantity">SKU</label>
                         <input class="form-control" required type="text" name="sku" value="{{$product->sku_code}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="product-name">Product Name</label>
                         <input class="form-control" required type="text" name="name" value="{{$product->name}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="quantity">Price</label>
                         <input class="form-control" required type="number" name="price" value="{{$product->price}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="category">Category</label>
                         <select name="category_id" id="input-category" class="form-select form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" required>
                             @foreach ($categories as $category)
@@ -36,7 +36,7 @@
                         </select>
 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="quantity">Sub Category</label>
                         <select class="form-control" name="sub_category_id" id="">
                         @foreach ($sub_categories as $sub_category)
@@ -48,8 +48,8 @@
                                 @endforeach
                                 </select>
                     </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-success" type="submit">Submit</button>
+                    <div class="form-group mt-5">
+                        <button class="btn bg-red text-white" type="submit">Submit</button>
                     </div>
                 </form>
             </div>

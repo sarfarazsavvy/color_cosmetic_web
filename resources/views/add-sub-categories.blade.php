@@ -24,7 +24,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group text-center mt-5">
+                <div class="form-group mt-4">
                     <button required type="submit" name="submit" class="btn bg-red text-white">Add Category</button>
                 </div>
             </form>

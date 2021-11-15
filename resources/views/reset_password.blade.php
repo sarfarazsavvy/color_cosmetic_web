@@ -26,7 +26,7 @@
                         <td>{{ $c->email}}</td>
                         <td>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#baPasswordChangeModal{{$i}}">
+                            <button type="button" class="btn bg-red text-white" data-bs-toggle="modal" data-bs-target="#baPasswordChangeModal{{$i}}">
                                 Reset Password
                             </button>
 
@@ -43,7 +43,7 @@
                                             @csrf
                                             <input type="hidden" value="{{$c->email}}">
                                             <div class="form-group">
-                                                <label for="">Enter New Password</label>
+                                                <label class="font-weight-bold mb-1" for="">Enter New Password</label>
                                                 <input type="text" name="password" class="form-control">
                                             </div>
                                             <div class="form-group text-center mt-3">
