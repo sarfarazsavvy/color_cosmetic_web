@@ -45,7 +45,7 @@
                                 <th>Date</th>
                                 <th>Product</th>
                                 <th>Category</th>
-                                <th>Actual Price</th>
+                                {{-- <th>Actual Price</th> --}}
                                 <th>Unit</th>
                                 <th>Amount</th>
                             </tr>
@@ -59,7 +59,7 @@
                                 <td>{{ \Carbon\Carbon::parse($d->sale_date)->format('d-m-Y')}}</td>
                                 <td>{{isset($d->product) ? $d->product[0]['name'] : '-'}}</td>
                                 <td>{{isset($d->product) ? $d->product[0]['category']['name'] : '-'}}</td>
-                                <td>{{isset($d->store_stock) ? $d->store_stock[0]['price'] : '-'}}</td>
+                                {{-- <td>{{isset($d->store_stock) ? $d->store_stock[0]['price'] : '-'}}</td> --}}
                                 <td>{{$d->quantity}}</td>
                                 <td>{{$d->price}}</td>
                             </tr>
@@ -82,7 +82,7 @@
                                 <th>Date</th>
                                 <th>Product</th>
                                 <th>Category</th>
-                                <th>Actual Price</th>
+                                {{-- <th>Actual Price</th> --}}
                                 <th>Unit</th>
                                 <th>Amount</th>
                             </tr>
@@ -97,7 +97,7 @@
                                 <td>{{isset($w->product[0]['name']) ? $w->product[0]['name'] : '-'}}</td>
                                 <td>{{isset($w->product[0]['category']) ? $w->product[0]['category']['name'] : '-'}}
                                 </td>
-                                <td>{{isset($w->store_stock) ? $w->store_stock[0]['price'] : '-'}}</td>
+                                {{-- <td>{{isset($w->store_stock) ? $w->store_stock[0]['price'] : '-'}}</td> --}}
                                 <td>{{$w->quantity}}</td>
                                 <td>{{$w->price}}</td>
                             </tr>
@@ -122,7 +122,7 @@
                                 <th>Date</th>
                                 <th>Product</th>
                                 <th>Category</th>
-                                <th>Actual Price</th>
+                                {{-- <th>Actual Price</th> --}}
                                 <th>Unit</th>
                                 <th>Amount</th>
                             </tr>
@@ -138,7 +138,7 @@
                                 <td>{{isset($m->product[0]['name']) ? $m->product[0]['name'] : '-'}}</td>
                                 <td>{{isset($m->product[0]['category']) ? $m->product[0]['category']['name'] : '-'}}
                                 </td>
-                                <td>{{isset($m->store_stock) ? $m->store_stock[0]['price'] : '-'}}</td>
+                                {{-- <td>{{isset($m->store_stock) ? $m->store_stock[0]['price'] : '-'}}</td> --}}
                                 <td>{{$m->quantity}}</td>
                                 <td>{{$m->price}}</td>
                             </tr>
