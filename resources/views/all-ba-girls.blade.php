@@ -6,13 +6,14 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="my-5 font-weight-bold primary-text">All beauty Advisors</h1>
+                <h1 class="my-5 font-weight-bold text-capitalize primary-text">All beauty Advisors</h1>
             </div>
             <div class="col-12">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead class="table-dark">
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Store</th>
                         <th>Email</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -22,6 +23,10 @@
                         <tr>
                             <td>{{ $baGirl->id }}</td>
                             <td>{{ $baGirl->name }}</td>
+                             @foreach ($baGirl->stores as $b)
+                             <td>{{isset($b->name) ? $b->name}}</td>                                 
+                             @endforeach   
+
                             <td>{{ $baGirl->email }}</td>
                             <td class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}</td>
                             <td>
