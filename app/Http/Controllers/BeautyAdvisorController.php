@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Password;
 class BeautyAdvisorController extends Controller
 {   
     public function beautyAdvisors() {
-        $baGirls = User::with('stores')->where('role', 'ba')->whereHas('stores')->get();
+        $baGirls = User::with('stores')->where('role', 'ba')->get();
+        // dd($baGirls);
         return view('all-ba-girls', compact('baGirls'));
     }
     

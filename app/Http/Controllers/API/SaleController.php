@@ -110,6 +110,7 @@ class SaleController extends BaseController
             // return $this->sendResponse(['sales_in_unit'=> $totalUnit, 'sales_in_rupees'=>$totalSale] ,'Monthly CEO Data recieved succesfully!');
         }
 
+
         // ============= OVERALL CATEGORY WISE SALE =================
 
         public function overal_category_wise_sale() {
@@ -118,14 +119,17 @@ class SaleController extends BaseController
 
             $data = [];
             $total = 0;
+
             if(isset($sales)) {
+
                 foreach( $sales as $sale ) {
-                    $total += $sale->quantity;
+                $total += $sale->quantity;
                    array_push($data, [
+                      
                         'id' => $sale->id,
-                        'sale_date'=>$sale->sale_date,
-                        'price'=>$sale->price,
-                        'quantity'=>$sale->quantity,
+                        'sale_date'=> $sale->sale_date,
+                        'price'=> $sale->price,
+                        'quantity'=> $sale->quantity,
                         'category'=> isset($sale['product'][0]['category']['name']) ? $sale['product'][0]['category']['name'] : "-" ,
                     ]);
 

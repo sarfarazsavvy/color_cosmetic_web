@@ -48,6 +48,10 @@ body {
     color: var(--red);
 }
 
+.text-warning {
+  color: #9b7608 !important;
+}
+
 /* font weight */
 
 .font-weight-bold {
