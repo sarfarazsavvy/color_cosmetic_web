@@ -9,20 +9,19 @@ use DB;
 use App\UserStore;
 use App\Appointment;
 use App\PasswordResets;
-
-
-
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 //use Illuminate\Support\Facades\Password;
 
 class BeautyAdvisorController extends Controller
 {   
     public function beautyAdvisors() {
-        $baGirls = User::where('role', 'ba')->get();
+        $baGirls = User::with('stores')->where('role', 'ba')->whereHas('stores')->get();
         return view('all-ba-girls', compact('baGirls'));
     }
     
@@ -55,16 +54,26 @@ class BeautyAdvisorController extends Controller
     }
      public function changePasswordRequestList() {
         
-         $password =PasswordResets::with('user')->get();
+         $password =PasswordResets::with('user')->where('status', "1")->get();
          return view('reset_password', compact('password'));
      }
 
      public function password_update(Request $req){
-         $password =PasswordResets::get();
-         $update_password =User::where('email',$req->email)->first();
+         $password = PasswordResets::get();
+         $update_password =User::where('email',$req->email)->first(); 
          $update_password->password = Hash::make($req->password);
+
+         DB::table('password_resets')
+            ->where('email',$req->email)
+            ->delete();
+
+        //  $changeStatus->status = 0;
+        //  $changeStatus->save();
+         
          $update_password->save();
          return view('reset_password',compact('password'));
+
+        //  return redirect()->route('forgot.password')->with('success','Password Succesfully Changed!');
 
      }
 

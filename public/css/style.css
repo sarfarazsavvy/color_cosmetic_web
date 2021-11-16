@@ -440,3 +440,15 @@ body {
 .theme-form .form-group {
   margin: 1.2em 0em;
 }
+
+.border-none {
+  border: 1px solid #0000ff00 !important;
+}
+
+.dt-buttons button {
+  color: white;
+  background-color: var(--red);
+  border: none;
+  border-radius: 3px;
+  padding: 5px 16px;
+}

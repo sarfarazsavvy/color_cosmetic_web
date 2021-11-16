@@ -5,7 +5,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="my-5 primary-text">All Cities</h1>
+            <h1 class="my-5 font-weight-bold text-capitalize primary-text">All Cities</h1>
         </div>
     </div>
     <div class="col-12">

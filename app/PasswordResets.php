@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class PasswordResets extends Model
 {
+    
     protected $table = 'password_resets';
-    protected $fillable = ['email','token'];
+    protected $fillable = ['email','token', 'status'];
 
     public function user(){
         return $this->hasOne(User::class,'email','email');

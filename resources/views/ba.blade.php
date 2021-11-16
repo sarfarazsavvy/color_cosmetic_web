@@ -5,7 +5,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="font-weight-bold my-5 primary-text">Create Beauty Advisor</h1>
+            <h1 class="font-weight-bold my-5 text-capitalize primary-text">Create Beauty Advisor</h1>
         </div>
         <div class="col-12">
             <form action="/create-beauty-advisors" method="post">

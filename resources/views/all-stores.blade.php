@@ -5,7 +5,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="font-weight-bold my-5 primary-text">Stores Management</h1>
+            <h1 class="font-weight-bold text-capitalize my-5 primary-text">Stores Management</h1>
         </div>
         <div class="row mt-5">
             <div class="col-12">

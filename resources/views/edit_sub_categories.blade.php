@@ -5,7 +5,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="my-5 primary-text font-weight-bold">Edit Sub Category</h1>
+                <h1 class="my-5 primary-text text-capitalize font-weight-bold">Edit Sub Category</h1>
             </div>
         </div>
         <div class="row">

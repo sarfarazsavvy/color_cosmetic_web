@@ -43,10 +43,10 @@
                                             <input type="hidden" value="{{$c->email}}">
                                             <div class="form-group">
                                                 <label class="font-weight-bold mb-1" for="">Enter New Password</label>
-                                                <input type="text" name="password" class="form-control">
+                                                <input required type="text" name="password" class="form-control">
                                             </div>
                                             <div class="form-group text-center mt-3">
-                                                <button class="btn bg-red primary-text text-white" type="submit">Change Password</button>
+                                                <button id="resetPasswordBtn" class="btn bg-red primary-text text-white" type="submit">Change Password</button>
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </form>
@@ -61,5 +61,25 @@
             </table>
         </div>
     </div>
+
+@endsection
+
+@section('custom-scripts')
+
+<script>
+    let passwordResetBtn = document.getElementById('resetPasswordBtn');
+    
+    passwordResetBtn.addEventListener('submit', () => {
+        console.log("button Clicked");
+    })
+
+    // var ele =;
+    // if(ele.addEventListener) {
+    //     ele.addEventListener("submit", callback, false);  //Modern browsers
+    // } else if (ele.attachEvent) { 
+    //     ele.attachEvent('onsubmit', callback);            //Old IE
+    // }
+
+</script>
 
 @endsection
