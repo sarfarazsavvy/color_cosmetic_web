@@ -25,6 +25,7 @@ class SaleController extends BaseController
         $date =$req->input('date');
 
         $store = auth()->user()->stores()->first();
+        $user_id = auth()->user()->id;
 
         if(!$product_id) {
             return $this->sendError("Product does not exist");
@@ -43,7 +44,7 @@ class SaleController extends BaseController
         } else {
             $sale_date = Carbon::now()->format('Y-m-d H:i:s');
         }
-        $todays_sale = Sale::whereDate('created_at',$sale_date)->where('store_id',$store->id)->first();
+        $todays_sale = Sale::whereDate('created_at',$sale_date)->where('user_id',$user_id)->first();
         foreach ((array) $product_id as $index=>$pro){
             $store_stock = StoreStock::where('store_id',$store->id)->where('product_id',$pro)->first();
             if(!$store_stock) {
