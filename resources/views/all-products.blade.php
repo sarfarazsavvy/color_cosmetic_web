@@ -3,7 +3,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="font-weight-bold my-5 primary-text">All Products</h1>
+            <h1 class="font-weight-bold text-capitalize my-5 primary-text">All Products</h1>
         </div>
         <div class="row my-5">
             <div class="col-12">
@@ -66,19 +66,19 @@
                     <div class="form-group my-5">
                         <h2 class="font-weight-bold text-underline primary-text">Add your product details</h2>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label for="quantity" class="font-weight-bold mb-1">SKU</label>
                         <input class="form-control" required type="text" name="sku">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label for="product-name" class="font-weight-bold mb-1">Product Name</label>
                         <input class="form-control" required type="text" name="name">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="font-weight-bold mb-1" for="quantity">Price</label>
                         <input class="form-control" required type="number" name="price">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="font-weight-bold mb-1" for="category">Category</label>
                         <select class="form-control" name="category_id" id="" onChange="load_sc()">
                             @foreach($cats as $cat)
@@ -87,7 +87,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-4">
                         <label class="font-weight-bold mb-1" for="quantity">Sub Category</label>
                         <select class="form-control" name="sub_category_id" id="">
                             @foreach($subCats as $subCat)
@@ -96,7 +96,7 @@
                         </select>
                     </div>
                     <div class="form-group text-center">
-                        <button class="btn btn-dark">Add</button>
+                        <button class="btn bg-red text-white">Add</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>

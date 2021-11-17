@@ -4,7 +4,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
-                <h1>Edit Category</h1>
+                <h1 class="font-weight-bold text-capitalize primary-text my-5">Edit Category</h1>
             </div>
         </div>
         <div class="row">
@@ -12,12 +12,12 @@
                 <form method="post" action="{{route('category.update',$category->id)}}">
                     @csrf
                     @method('PATCH')
-                    <div class="form-group">
-                        <label for="name">Name</label>
+                    <div class="form-group mb-4">
+                        <label class="mb-1 font-weight-bold " for="name">Name</label>
                         <input placeholder="Lorem Mart" required type="text" name="name" value="{{$category->name}}" class="form-control">
                     </div>
-                    <div class="form-group text-center">
-                        <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn bg-red text-white">Update</button>
                     </div>
                 </form>
             </div>

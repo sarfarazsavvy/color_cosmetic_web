@@ -11,11 +11,10 @@
         <div class="col-12">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="table-dark">
-                <th>ID</th>
-                <th>Name</th>
-                <th>email</th>
-                <th>Action</th>
-
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>Action</th>
                 <tbody>
                 <?php $i=0; ?>
                 @foreach($password as $c )
@@ -26,7 +25,7 @@
                         <td>{{ $c->email}}</td>
                         <td>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#baPasswordChangeModal{{$i}}">
+                            <button type="button" class="btn bg-red text-white" data-bs-toggle="modal" data-bs-target="#baPasswordChangeModal{{$i}}">
                                 Reset Password
                             </button>
 
@@ -43,11 +42,11 @@
                                             @csrf
                                             <input type="hidden" value="{{$c->email}}">
                                             <div class="form-group">
-                                                <label for="">Enter New Password</label>
-                                                <input type="text" name="password" class="form-control">
+                                                <label class="font-weight-bold mb-1" for="">Enter New Password</label>
+                                                <input required type="text" name="password" class="form-control">
                                             </div>
                                             <div class="form-group text-center mt-3">
-                                                <button class="btn bg-red primary-text text-white" type="submit">Change Password</button>
+                                                <button id="resetPasswordBtn" class="btn bg-red primary-text text-white" type="submit">Change Password</button>
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </form>
@@ -58,10 +57,29 @@
                         </td>
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
         </div>
     </div>
+
+@endsection
+
+@section('custom-scripts')
+
+<script>
+    let passwordResetBtn = document.getElementById('resetPasswordBtn');
+    
+    passwordResetBtn.addEventListener('submit', () => {
+        console.log("button Clicked");
+    })
+
+    // var ele =;
+    // if(ele.addEventListener) {
+    //     ele.addEventListener("submit", callback, false);  //Modern browsers
+    // } else if (ele.attachEvent) { 
+    //     ele.attachEvent('onsubmit', callback);            //Old IE
+    // }
+
+</script>
 
 @endsection

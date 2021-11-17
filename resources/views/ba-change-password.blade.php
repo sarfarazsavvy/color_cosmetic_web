@@ -6,7 +6,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="my-5 font-weight-bold primary-text">All beauty Advisors</h1>
+                <h1 class="my-5 font-weight-bold text-capitalize primary-text">All beauty Advisors</h1>
             </div>
             <div class="col-12">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
