@@ -463,6 +463,7 @@ body {
   cursor: pointer;
   border: 1px solid var(--red);
   padding: 5px 17px;
+  margin: 0;
   color: var(--red);
 }
 
@@ -494,7 +495,7 @@ body {
   border-bottom-right-radius: 7px
 }
 
-.paginate_button.active {
+.paginate_button.current {
   cursor: pointer;
   background-color: var(--red);
   color: white;
