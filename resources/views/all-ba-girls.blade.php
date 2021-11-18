@@ -19,9 +19,11 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
+                        <?php $i =0; ?>
                         @foreach( $baGirls as $baGirl )
+                        <?php $i++; ?>
                         <tr>
-                            <td>{{ $baGirl->id }}</td>
+                            <td>{{ $i }}</td>
                             <td>{{ $baGirl->name }}</td>
                             <td> 
                                 {{-- @if( isEmpty($baGirl->stores) )
@@ -40,7 +42,7 @@
 
                             </td>
                             <td>{{ $baGirl->email }}</td>
-                            <td class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}</td>
+                            <td class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Inactive"}}</td>
                             <td>
                                 <a class="btn primary-text" data-bs-toggle="modal" data-bs-target="#baStatusModal{{$baGirl->id}}">Change Status</a>
             
@@ -50,7 +52,7 @@
                                         <div class="modal-content">
                                             <div class="modal-body p-5">
                                                 <h3 class="text-capitalize">{{$baGirl->name}}</h3>
-                                                <h5 class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Unactive"}}</h5>
+                                                <h5 class='{{ ($baGirl->active == "1") ? "text-success" : "text-danger"}}'>{{ ($baGirl->active == "1") ? "Active" : "Inactive"}}</h5>
                                                 
                                                 <form method="post" action="/deactivate-ba">
                                                 @csrf
@@ -84,6 +86,16 @@
 </div>
 @endsection
 
+@section('custom-scripts')
 
+<script>
+    // $(document).ready(function () {
+    //  var table = $('#example').DataTable( {
+    //            "pageLength": 5,
+    //            "pagingType": "full_numbers"
+    //       });
+    //     $('#example').removeClass( 'display' ).addClass('table table-striped table-bordered');
+    // });
+</script>
 
-
+@endsection

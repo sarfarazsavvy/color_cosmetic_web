@@ -449,10 +449,54 @@ body {
   border: 1px solid #0000ff00 !important;
 }
 
+/* Data Tables Styling */
+
 .dt-buttons button {
   color: white;
   background-color: var(--red);
   border: none;
   border-radius: 3px;
   padding: 5px 16px;
+}
+
+.paginate_button {
+  cursor: pointer;
+  border: 1px solid var(--red);
+  padding: 5px 17px;
+  color: var(--red);
+}
+
+.dataTables_paginate a {
+  text-decoration: none;
+}
+
+.paginate_button.previous {
+  border: 1px solid var(--red);
+  margin-right: 5px;
+  min-width: 12px !important;
+  background-color: var(--red) !important;
+  padding: 5px 17px;
+  color: white;
+  cursor: pointer;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px
+}
+
+.paginate_button.next {
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  min-width: 12px !important;
+  background-color: var(--red) !important;
+  padding: 5px 17px;
+  color: white;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px
+}
+
+.paginate_button.active {
+  cursor: pointer;
+  background-color: var(--red);
+  color: white;
+
 }

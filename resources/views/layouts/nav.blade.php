@@ -1,7 +1,7 @@
 <nav class="navbar px-3 navbar-expand-lg bg-dark fixed-top d-flex justify-content-between align-items-center">
     <div class="nav-logo">
       <a href="/home" style="text-decoration: none">
-        <p class="p-0 m-0 text-white" style="font-size: 22px;"><span class="primary-text me-2">Revlon</span>Color Cosmetic</p>
+        <p class="p-0 m-0 text-white" style="font-size: 22px;"><span class="primary-text me-2">Revlon</span>Color Cosmetics</p>
       </a>
     </div>
     <div class="greatings">

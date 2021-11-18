@@ -25,7 +25,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Revlon Color Cosmetic
+                    Revlon Color Cosmetics
                 </div>
 
                 <div class="links">

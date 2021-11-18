@@ -14,7 +14,7 @@
         <div class="offset-md-4 mt-5 col-md-4">
             <div class="login-form-parent">
             <h1 class="text-center">Welcome</h1>
-            <h4 class="text-center">Revlon Color Cosmetic</h4>
+            <h4 class="text-center">Revlon Color Cosmetics</h4>
             <div class="login-form">
                 @if(session()->has('message'))
                     <p class="alert alert-success" role="alert">

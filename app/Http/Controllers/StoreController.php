@@ -23,8 +23,21 @@ class StoreController extends Controller
         $store->contact = $req->contact;
         $store->address = $req->address;
         $store->city_id = $req->city;
+        //fetch all products and make entry in 
+        if($store->save())
+        {
+            $products = Product::all();
+            foreach($products as $product)
+            {
+                $storeStock = new StoreStock;
+                $storeStock->store_id = $store->id;
+                $storeStock->product_id = $product->id;
+                $storeStock->price = $product->price; //from proddutc
+                $storeStock->quantity = 0;
+                $storeStock->save();
 
-        $store->save();
+            }
+        }
 
         return redirect()->back()->with('success','Store Created Succesfully!');
     }
