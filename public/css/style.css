@@ -498,5 +498,5 @@ body {
 .paginate_button.current {
   cursor: pointer;
   background-color: var(--red);
-  color: var(--red);
+  color: white;
 }
