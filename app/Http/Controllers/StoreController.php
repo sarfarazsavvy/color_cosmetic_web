@@ -42,6 +42,11 @@ class StoreController extends Controller
         return redirect()->back()->with('success','Store Created Succesfully!');
     }
 
+/*
+
+*/
+
+
     public function stores() {
 
         $cities = City::all();
