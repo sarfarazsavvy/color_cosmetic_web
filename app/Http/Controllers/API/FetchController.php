@@ -19,7 +19,10 @@ class FetchController extends BaseController
     }
 
     public function sub_categories(Request $req){
-        
+
+
+
+
         if($req->input('category_id'))
         {
             $category = $req->input('category_id');
