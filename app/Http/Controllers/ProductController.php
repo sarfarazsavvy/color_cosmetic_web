@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Store;
 use App\User;
 use Illuminate\Http\Request;
 use App\Category;
@@ -31,7 +32,20 @@ class ProductController extends Controller
         $product->category_id = $req->category_id;
         $product->sub_category_id = $req->sub_category_id;
         $product->save();
-    
+
+        if($product->id){
+           $store =Store::orderBy('id','desc')->get();
+           foreach ($store as $s){
+               $store_stock = new StoreStock();
+               $store_stock->store_id = $s->id;
+               $store_stock->product_id = $product->id;
+               $store_stock->price = $product->price;
+               $store_stock->save();
+           }
+
+        }
+
+
         return redirect()->back()->with('success','Product Added Succesfully!');
         
     }
