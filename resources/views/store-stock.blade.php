@@ -22,8 +22,8 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <table class="table">
-                <thead class="thead-dark">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead class="thead-dark">
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Name</th>
