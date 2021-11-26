@@ -46,13 +46,15 @@
                             @enderror
                     </div>
                     <div class="form-group text-center">
-                        <button type="submit" class="btn bg-red text-white">
+                        <button type="submit" class="mb-4 btn bg-red text-white">
                             {{ __('Login') }}
                         </button>
+                        <br>
+                        <a class="font-weight-bold primary-text" style="text-decoration: none" href="/privacy-policy">Privacy Policy</a>
                     </div>
 
                     <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
+                        <div class="col-md-8 offset-md-4 text-center">
                             
                         </div>
                     </div>
