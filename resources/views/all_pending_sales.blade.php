@@ -33,14 +33,22 @@
                         <tbody>
                         <?php $i = 0; ?>
                         @foreach($pending_sales as $ps)
-                            <?php $i++;?>
-                            @if($ps->quantity > $ps->store_stock[0]['quantity'])
-                                <tr style="border: 1px solid red; border-radius: 12px; color: red">
+                            <?php $i++;
+                                $store_stock = $ps->store_wise_stock($ps->store_id);
+                                $qty = 0;
+                                if($store_stock)
+                                    {
+                                        $qty = $store_stock->quantity;
+                                    }
+
+                            ?>
+                            @if($ps->quantity > $qty)
+                                <tr id="tr_{{$ps->id}}" style="border: 1px solid red; border-radius: 12px; color: red">
                                     <th scope="row">{{$i}}</th>
                                     <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
                                     <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
                                     <td>{{isset($ps->product) ? $ps->product[0]['name'] : '-'}}</td>
-                                    <td>{{isset($ps->store_stock) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
+                                    <td>{{isset($qty) ? $qty : '-'}}</td>
                                     <td>{{$ps->quantity}}</td>
                                     <td>{{$ps->created_at}}</td>
                                     <td>
@@ -48,12 +56,12 @@
                                     </td>
                                 </tr>
                             @else
-                                <tr>
+                                <tr id="tr_{{$ps->id}}">
                                     <th scope="row">{{$i}}</th>
                                     <td>{{isset($ps->user) ? $ps->user->name : '-'}}</td>
                                     <td>{{isset($ps->store) ? $ps->store[0]['name'] : '-'}}</td>
                                     <td>{{isset($ps->product) ? $ps->product[0]['name'] : '-'}}</td>
-                                    <td>{{isset($ps->store_stock) ? $ps->store_stock[0]['quantity'] : '-'}}</td>
+                                    <td>{{isset($qty) ? $qty: '-'}}</td>
                                     <td>{{$ps->quantity}}</td>
                                     <td>{{$ps->created_at}}</td>
                                     <td><input data-product_id="{{$ps->product_id}}" data-qty="{{$ps->quantity}}"  class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Approved" data-off="Pending" {{ $ps->status ? 'checked' : '' }} /></td>
@@ -88,10 +96,11 @@
                     url: '{{ route('sales.pending') }}',
                     data: {'status': status, 'product_id': product_id,'qty': qty},
                     success: function(data){
-                        console.log(data.success)
+                      console.log(data.success)
                     }
                 });
             })
         });
+
     </script>
 @endpush

@@ -25,6 +25,10 @@ class Sale extends Model
         return $this->hasMany(StoreStock::class, 'product_id', 'product_id');
     }
 
+    public function store_wise_stock($store_id){
+        return $this->hasMany(StoreStock::class, 'product_id', 'product_id')->where('store_id',$store_id)->first();
+    }
+
     public function product()
     {
         return $this->hasMany(Product::class, 'id', 'product_id');
