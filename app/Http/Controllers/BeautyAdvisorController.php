@@ -36,6 +36,10 @@ class BeautyAdvisorController extends Controller
 
     public function createBeautyAdvisor(Request $req) {
 
+        $req->validate([
+            'email' => 'unique:users|required',
+        ]);
+
         $ba = new User();
         
         $ba->name = $req->name;
