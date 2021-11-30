@@ -131,7 +131,6 @@ class ProductController extends Controller
     }
 
 
-
     public function ba_sales_reports(){
         $ba_user =User::where('role','ba')->get();
         return view("ba_sales_reports", compact('ba_user'));
