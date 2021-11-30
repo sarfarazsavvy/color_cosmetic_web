@@ -40,7 +40,7 @@
                     </select>
                 </div>
                 <div class="form-group mt-3 text-center">
-                    <button class="btn bg-red text-white">Add</button>
+                    <button class="btn bg-red texwebt-white">Add</button>
                 </div>
             </form>
         </div>

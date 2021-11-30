@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Store;
 use App\BeautyAdvisor;
 use App\User;
+use App\SubCategory;
 use DB;
 use App\UserStore;
 use App\Appointment;
@@ -34,6 +35,10 @@ class BeautyAdvisorController extends Controller
     }
 
     public function createBeautyAdvisor(Request $req) {
+
+        $req->validate([
+            'email' => 'unique:users|required',
+        ]);
 
         $ba = new User();
         
@@ -114,5 +119,26 @@ class BeautyAdvisorController extends Controller
         return redirect()->route('beauty-advisors')->with('success','Store Assigned to Beauty Advisor');
 
     }
+
+    public function destroy($id)
+    {
+        $subcategory = SubCategory::find($id);
+        if($subcategory){
+            $status=$subcategory->delete();
+            if($status){
+                request()->session()->flash('success','Sub Categories successfully deleted');
+            }
+            else{
+                request()->session()->flash('error','Error, Please try again');
+            }
+            return redirect()->route('sub_category.index');
+        }
+        else{
+            request()->session()->flash('error','Sub Category not found');
+
+        }
+        return redirect()->back();
+    }
+
 
 }

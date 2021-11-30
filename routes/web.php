@@ -72,7 +72,11 @@ Route::get('/approved/sales', 'ProductController@approved_sales')->name('sales.p
 Route::get('/ba/sales/reports', 'ProductController@ba_sales_reports')->name('ba.sales.reports');
 Route::get('/ba/sales/view/{id}', 'ProductController@ba_sales_view')->name('ba.sales.view');
 
+// Privacy Policy 
 
+Route::get('privacy-policy', function() {
+    return view('layouts.privacy-policy');
+});
 
 
 
